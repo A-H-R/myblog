@@ -31,7 +31,7 @@ public class ArticleController {
     //    Pageable pageable = new PageRequest(0, size, sort);
 
     @GetMapping("/article")
-    public String toArticle(@PageableDefault(size = 8,sort = {"updateTime"},direction = Sort.Direction.DESC) Pageable pageable,
+    public String toArticle(@PageableDefault(size = 3,sort = {"updateTime"},direction = Sort.Direction.DESC) Pageable pageable,
                             Model model) {
         model.addAttribute("articles", articleService.listArticle(pageable));
         return "admin/article";

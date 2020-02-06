@@ -48,7 +48,9 @@
                 <th></th>
                 <th>标题</th>
                 <th>作者</th>
+                <th>类型</th>
                 <th>归类</th>
+                <th>创建时间</th>
                 <th>更新时间</th>
                 <th>状态</th>
                 <th>操作</th>
@@ -59,9 +61,13 @@
                 <td th:text="${iter.count}">1</td>
                 <td th:text="${item.title}">我的第一篇博客</td>
                 <td th:text="${item.author}">胡瑞</td>
+                <td th:text="${item.flag}">原创</td>
                 <td th:text="${item.type.name}">测试</td>
+                <td th:text="${item.createTime}">2020-2-4 14:03</td>
                 <td th:text="${item.updateTime}">2020-2-4 14:03</td>
-                <td th:text="${item.status} ? '发布':'未发布'">未发布</td>
+<!--                <td th:text="${item.status} ? '发布':'未发布'">未发布</td>-->
+                <td><i class="" th:classappend="${item.status} ? 'green large check circle icon' : 'red large eye slash icon'"></i></td>
+
                 <td>
                     <a href="#" class="ui mini teal basic button">发布</a>
                     <a href="#" class="ui mini teal basic button">编辑</a>
@@ -99,9 +105,9 @@
         </tbody>
         <tfoot>
             <tr>
-            <th colspan="7">
-                <a href="#" th:href="@{/admin/article(articles=${articles.number}-1}" th:unless="${articles.first}" class="ui black button">上一页</a>
-                <a href="#" th:href="@{/admin/article(articles=${articles.number}+1}" th:unless="${articles.last}" class="ui right floated black button">下一页</a>
+            <th colspan="9" th:if="${articles.totalPages>1}">
+                <a href="#" th:href="@{/admin/article(page=${articles.number}-1)}" th:unless="${articles.first}" class="ui black button">上一页</a>
+                <a href="#" th:href="@{/admin/article(page=${articles.number}+1)}" th:unless="${articles.last}" class="ui right floated black button">下一页</a>
             </th>
         </tr>
         </tfoot>
