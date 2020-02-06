@@ -7,16 +7,14 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 @ResponseStatus(HttpStatus.NOT_FOUND)   //返回状态
-public class NotfundException extends RuntimeException{
-
-    public NotfundException() {
+public class NotFoundException extends RuntimeException{
+    public NotFoundException() {
     }
-
-    public NotfundException(String message) {
+    public NotFoundException(String message) {
         super(message);
     }
 
-    public NotfundException(String message, Throwable cause) {
+    public NotFoundException(String message, Throwable cause) {
         super(message, cause);
     }
 }

@@ -16,5 +16,7 @@ public interface ArticleService {
 
     Page<Article> listArticle(Pageable pageable);
 
+    Article updateArticle(Long id);     //  更新状态
+
     void deleteArticle(Long id);
 }

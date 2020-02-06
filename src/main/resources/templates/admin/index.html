@@ -14,7 +14,7 @@
                 <h2 class="ui header item">hu猴窝</h2>
                 <h3 class="ui header item m-title-font-t2">自己的小地方，有乐亦有苦，自在乐逍遥~~~</h3>
                 <div class="right menu">
-                    <a class="ui item" th:href="@{/admin/editArticle}" target="_parent">
+                    <a class="ui item" th:href="@{/admin/editArticle/{id}(id=-1)}" target="_parent">
                        <i class="ui large pencil alternate icon"></i> 写博客
                     </a>
                     <div class="ui dropdown item">
@@ -70,7 +70,7 @@
 
                     <div class="ui container">
                         <div class="ui segment">
-                            <iframe src="article.html" id="mIframe" th:src="@{/admin/article}" frameborder="0" style="min-height: 550px;width: 100%;" scrolling="auto">
+                            <iframe src="sort.html" id="mIframe" th:src="@{/admin/article}" frameborder="0" style="min-height: 550px;width: 100%;" scrolling="auto">
 
                             </iframe>
                         </div>

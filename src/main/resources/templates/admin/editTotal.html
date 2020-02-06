@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css">
+    <link rel="stylesheet" href="../../static/css/me.css" th:href="@{/css/me.css}">
+</head>
+<body>
+    <nav class="ui attached segment m-bgcolor-black">
+    <div class="ui attached container">
+        <div class="ui inverted attached secondary menu m-bgcolor-black">
+            <h2 class="ui header item">hu猴窝</h2>
+            <h3 class="ui header item m-title-font-t2">给自己归归类，加上骚气的标签</h3>
+            <div class="right menu">
+                <div class="ui dropdown item">
+                    <div class="text">
+                        <img class="ui avatar image" src="https://unsplash.it/100/100?image=1005">
+                        HU猴
+                    </div>
+                    <i class="dropdown icon"></i>
+                    <div class="menu">
+                        <a href="#" class="item">注销</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <div class="ui container">
+        <div class="m-padding">
+            <div class="ui big teal tag label">分类</div>
+            <div class="ui segment">
+                <form action="#" class="ui form">
+                    <div class="ui grid">
+                        <div class="eight wide column">
+                            <div class="field">
+                                <div class="ui left labeled input">
+                                    <div class="ui teal basic label">
+                                        分类名称
+                                    </div>
+                                    <input type="text" name="title" th:value="*{title}" placeholder="骚年，来个骚气的分类名称吧~">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="two wide column">
+                            <div class="field m-padded-tb-small">
+                                <div class="ui checkbox">
+                                    <input type="checkbox" name="public" id="public">
+                                    <label for="public">公开</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="three wide column"></div>
+                        <div class="three wide column">
+                            <a href="#" class="ui teal button">添加</a>
+                        </div>
+                    </div>
+
+                </form>
+
+
+            </div>
+        </div>
+        <div class="m-padding">
+            <div class="ui big teal tag label">标签</div>
+            <div class="ui segment">
+                <form action="#" class="ui form">
+                    <div class="ui grid">
+                        <div class="eight wide column">
+                            <div class="field">
+                                <div class="ui left labeled input">
+                                    <div class="ui teal basic label">
+                                        标签
+                                    </div>
+                                    <input type="text" name="" th:value="*{title}" placeholder="来个骚气的标签吧。">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="five wide column"></div>
+                        <div class="three wide column">
+                            <a href="#" class="ui teal button">添加</a>
+                        </div>
+                    </div>
+
+                </form>
+
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.js"></script>
+
+    <script>
+        $('.menu.toggle').click(function () {
+            $('.m-item').toggleClass('m-mobile-hide');
+        });
+
+        $('.ui.dropdown').dropdown({
+            on : 'hover'
+        });
+    </script>
+
+</body>
+</html>

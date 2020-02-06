@@ -10,11 +10,11 @@ import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.data.domain.Pageable;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import java.text.ParseException;
 
 @Controller
 @RequestMapping("/admin")
@@ -37,28 +37,45 @@ public class ArticleController {
         return "admin/article";
     }
 
-    @GetMapping("/editArticle")
-    public String toEditArticle() {
-        return "admin/editArticle";
+    //  跳转到编写页面
+    @GetMapping("/editArticle/{id}")
+    public String toEditArticle(@PathVariable Long id,Model model) {
+        if (id == -1){
+            Article article = new Article();
+            article.setStatus(false);
+            model.addAttribute("article", article);
+            return "admin/editArticle";
+        } else {
+            Article article = articleService.getOneArticle(id);
+            //  分类和标签没有做
+
+            model.addAttribute("article", article);
+            return "admin/editArticle";
+        }
+
     }
 
     //修改或新增一个文章
     @PostMapping("/article")
-    public String SaveOrModifyArticle(Article article, RedirectAttributes attributes){
-        Article a;
+    public String SaveOrModifyArticle(Article article, RedirectAttributes attributes) throws ParseException {
 
-        if (article.getId() == null) {
-            //  新文章
-            a = articleService.saveArticle(article);
-        } else {
-            //
-        }
-
+        Article a = articleService.saveArticle(article);
 
         return "redirect:/admin/index";
     }
 
+    //  发布文章按钮
+    @GetMapping("/publish/{id}")
+    public String publishArticle(@PathVariable Long id) {
+        articleService.updateArticle(id);
+        return "redirect:/admin/article";
+    }
 
+    @GetMapping("/delete/{id}")
+    public String deleteArticle(@PathVariable Long id) {
+        articleService.deleteArticle(id);
+        return "redirect:/admin/article";
+    }
 
 
 

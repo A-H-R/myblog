@@ -15,6 +15,7 @@ public class Type {
     @GeneratedValue
     private Long id;
     private String name;
+    private boolean isPublic;
 
     @OneToMany(mappedBy = "type")
     private List<Article> articles = new ArrayList<>();
@@ -33,9 +34,10 @@ public class Type {
 
     @Override
     public String toString() {
-        return "Types{" +
+        return "Type{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
+                ", isPublic=" + isPublic +
                 '}';
     }
 
@@ -53,5 +55,13 @@ public class Type {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public boolean isPublic() {
+        return isPublic;
+    }
+
+    public void setPublic(boolean aPublic) {
+        isPublic = aPublic;
     }
 }
