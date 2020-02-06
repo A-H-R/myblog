@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="admin/_common :: head()">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>后台管理|首页</title>
@@ -14,7 +14,7 @@
                 <h2 class="ui header item">hu猴窝</h2>
                 <h3 class="ui header item m-title-font-t2">自己的小地方，有乐亦有苦，自在乐逍遥~~~</h3>
                 <div class="right menu">
-                    <a class="ui item">
+                    <a class="ui item" th:href="@{/admin/editArticle}" target="_parent">
                        <i class="ui large pencil alternate icon"></i> 写博客
                     </a>
                     <div class="ui dropdown item">
@@ -36,20 +36,20 @@
         <div class="three wide column">
             <div class="ui attached segment">
                 <div class="ui fluid vertical pointing  menu">
-                    <div class=" item">
-                        <a href="#"><i class="large chart line icon"></i> 浏览一栏</a>
+                    <div class="item" id="menuItem1">
+                        <div href="#" onclick="change(1,'/admin/view')"><i class="large chart line icon"></i> 浏览一栏</div>
                     </div>
-                    <div class="active item">
-                        <a href="#"><i class="large book icon"></i> 文章管理</a>
+                    <div class="active item" id="menuItem2">
+                        <div href="#" onclick="change(2,'/admin/article')"><i class="large book icon"></i> 文章管理</div>
                     </div>
-                    <div class="item">
-                        <a href="#"><i class="large archive icon"></i> 归档管理</a>
+                    <div class="item" id="menuItem3">
+                        <div href="#" onclick="change(3,'/admin/sort')"><i class="large archive icon"></i> 归档管理</div>
                     </div>
-                    <div class="item">
-                        <a href="#"><i class="large tags icon"></i> 标签管理</a>
+                    <div class="item" id="menuItem4">
+                        <div href="#"><i class="large tags icon"></i> 标签管理</div>
                     </div>
-                    <div class="item">
-                        <a href="#"><i class="large paint brush icon"></i> 随笔管理</a>
+                    <div class="item" id="menuItem5">
+                        <div href="#"><i class="large paint brush icon"></i> 随笔管理</div>
                     </div>
                 </div>
 
@@ -70,7 +70,7 @@
 
                     <div class="ui container">
                         <div class="ui segment">
-                            <iframe src="article.html" frameborder="0" style="min-height: 550px;min-width: 850px;" scrolling="auto">
+                            <iframe src="article.html" id="mIframe" th:src="@{/admin/article}" frameborder="0" style="min-height: 550px;min-width: 850px;" scrolling="auto">
 
                             </iframe>
                         </div>
@@ -87,6 +87,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.js"></script>
+    <script src="../../static/js/admin/index.js" th:src="@{/js/admin/index.js}"></script>
 
     <script>
         $('.menu.toggle').click(function () {

@@ -17,6 +17,8 @@ public class Article {
     private Long id;
     private String title;
     private String author;
+    @Basic(fetch = FetchType.LAZY)
+    @Lob
     private String content;
     private String picture;
     private String flag;
@@ -24,9 +26,8 @@ public class Article {
     private Date createTime;
     @Temporal(TemporalType.TIMESTAMP)
     private Date updateTime;
-    private Integer loves;
     private Integer views;
-    private Integer status;
+    private boolean status;
 
     @ManyToOne
     private Type type;
@@ -65,7 +66,6 @@ public class Article {
                 ", flag='" + flag + '\'' +
                 ", createTime=" + createTime +
                 ", updateTime=" + updateTime +
-                ", loves=" + loves +
                 ", views=" + views +
                 '}';
     }
@@ -134,14 +134,6 @@ public class Article {
         this.updateTime = updateTime;
     }
 
-    public Integer getLoves() {
-        return loves;
-    }
-
-    public void setLoves(Integer loves) {
-        this.loves = loves;
-    }
-
     public Integer getViews() {
         return views;
     }
@@ -150,11 +142,11 @@ public class Article {
         this.views = views;
     }
 
-    public Integer getStatus() {
+    public boolean isStatus() {
         return status;
     }
 
-    public void setStatus(Integer status) {
+    public void setStatus(boolean status) {
         this.status = status;
     }
 }

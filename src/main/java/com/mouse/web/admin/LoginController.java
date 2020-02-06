@@ -24,9 +24,15 @@ public class LoginController {
     private UserService userService;
 
     @GetMapping
-    public String loginPage(){
+    public String toLogin(){
         return "admin/login";
     }
+
+    @GetMapping("/index")
+    public String toIndex() {
+        return "admin/index";
+    }
+
 
     @PostMapping("/login")
     public String login(@RequestParam String username,
