@@ -3,8 +3,12 @@ package com.mouse.web.admin;
  *created by mouse on 2020/2/5
  */
 
+import com.mouse.dao.TagRepository;
+import com.mouse.dao.TypeRepository;
 import com.mouse.po.Article;
 import com.mouse.service.ArticleService;
+import com.mouse.service.TagService;
+import com.mouse.service.TypeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
@@ -22,7 +26,10 @@ public class ArticleController {
 
     @Autowired
     private ArticleService articleService;
-
+    @Autowired
+    private TypeService typeService;
+    @Autowired
+    private TagService tagService;
 
 
 
@@ -40,6 +47,8 @@ public class ArticleController {
     //  跳转到编写页面
     @GetMapping("/editArticle/{id}")
     public String toEditArticle(@PathVariable Long id,Model model) {
+        model.addAttribute("types", typeService.listType());
+        model.addAttribute("tags", tagService.listTag());
         if (id == -1){
             Article article = new Article();
             article.setStatus(false);

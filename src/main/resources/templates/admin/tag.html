@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css">
+    <link rel="stylesheet" href="../../static/css/me.css" th:href="@{/css/me.css}">
+</head>
+<body>
+
+<div class="ui segment">
+    <a href="#" th:href="@{/admin/tag/editTag/{id}(id = -1)}" class="ui teal basic button">添加标签</a>
+</div>
+
+<table class="ui teal table">
+    <thead>
+    <tr>
+        <th></th>
+        <th>标签名称</th>
+        <th>操作</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="item,index : ${tag.content}">
+        <td th:text="${index.count}">1</td>
+        <td th:text="${item.name}">测试</td>
+        <td>
+            <a href="#" th:href="@{/admin/tag/editTag/{id}(id=${item.id})}" class="ui mini teal basic button">编辑</a>
+            <a href="#" th:href="@{/admin/tag/deleteTag/{id}(id=${item.id})}" class="ui mini red basic button">删除</a>
+        </td>
+    </tr>
+    </tbody>
+    <tfoot>
+    <tr>
+        <th colspan="4" th:if="${tag.totalPages>1}">
+            <a href="#" th:href="@{/admin/tag(page=${tag.number}-1)}" th:unless="${tag.first}" class="ui black button">上一页</a>
+            <a href="#" th:href="@{/admin/tag(page=${tag.number}+1)}" th:unless="${tag.last}" class="ui right floated black button">下一页</a>
+        </th>
+    </tr>
+    </tfoot>
+</table>
+</body>
+</html>

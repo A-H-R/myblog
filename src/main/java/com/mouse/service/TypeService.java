@@ -7,18 +7,19 @@ import com.mouse.po.Type;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
+import java.util.List;
+
 public interface TypeService {
 
 
-    //  数据库
+    // 后端
     Type getOneType(Long id);
     Type saveType(Type type);
     Type updateStatus(Long id);
     void deleteType(Long id);
-
-    //  页面显示
-
     Page<Type> pageType(Pageable pageable);
+    List<Type> listType();
+
 
 
 

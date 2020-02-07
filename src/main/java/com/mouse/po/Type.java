@@ -15,21 +15,12 @@ public class Type {
     @GeneratedValue
     private Long id;
     private String name;
-    private boolean isPublic;
+    private boolean status;
 
     @OneToMany(mappedBy = "type")
     private List<Article> articles = new ArrayList<>();
 
-
     public Type() {
-    }
-
-    public List<Article> getArticles() {
-        return articles;
-    }
-
-    public void setArticles(List<Article> articles) {
-        this.articles = articles;
     }
 
     @Override
@@ -37,7 +28,7 @@ public class Type {
         return "Type{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", isPublic=" + isPublic +
+                ", status=" + status +
                 '}';
     }
 
@@ -57,11 +48,19 @@ public class Type {
         this.name = name;
     }
 
-    public boolean isPublic() {
-        return isPublic;
+    public boolean isStatus() {
+        return status;
     }
 
-    public void setPublic(boolean aPublic) {
-        isPublic = aPublic;
+    public void setStatus(boolean status) {
+        this.status = status;
+    }
+
+    public List<Article> getArticles() {
+        return articles;
+    }
+
+    public void setArticles(List<Article> articles) {
+        this.articles = articles;
     }
 }
