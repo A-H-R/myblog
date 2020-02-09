@@ -19,14 +19,6 @@ public class Tag {
     @ManyToMany(mappedBy = "tags")
     private List<Article> articles = new ArrayList<>();
 
-    public List<Article> getArticles() {
-        return articles;
-    }
-
-    public void setArticles(List<Article> articles) {
-        this.articles = articles;
-    }
-
     public Tag() {
     }
 
@@ -36,6 +28,14 @@ public class Tag {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 '}';
+    }
+
+    public List<Article> getArticles() {
+        return articles;
+    }
+
+    public void setArticles(List<Article> articles) {
+        this.articles = articles;
     }
 
     public Long getId() {

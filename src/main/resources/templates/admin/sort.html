@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css">
-    <link rel="stylesheet" href="../../static/css/me.css" th:href="@{/css/me.css}">
+    <link rel="stylesheet" href="../../static/css/myAdmin.css" th:href="@{/css/myAdmin.css}">
 </head>
 <body>
 
@@ -24,7 +24,7 @@
             <tr th:each="item,index : ${type.content}">
                 <td th:text="${index.count}">1</td>
                 <td th:text="${item.name}">测试</td>
-                <td><i th:classappend="${item.status} ? 'green large check circle icon' : 'red large eye icon'"></i></td>
+                <td><i th:classappend="${item.status} ? 'green large eye icon' : 'red large low vision icon'"></i></td>
                 <td>
                     <a href="#" th:href="@{/admin/type/updateTypeStatus/{id}(id = ${item.id})}" class="ui mini teal basic button">公布</a>
                     <a href="#" th:href="@{/admin/type/editType/{id}(id = ${item.id})}" class="ui mini teal basic button">编辑</a>

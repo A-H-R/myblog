@@ -30,24 +30,8 @@ public class Article {
     @ManyToOne
     private Type type;
 
-    @ManyToMany(cascade = {CascadeType.PERSIST})
+    @ManyToMany
     private List<Tag> tags = new ArrayList<>();
-
-    public Type getType() {
-        return type;
-    }
-
-    public void setType(Type type) {
-        this.type = type;
-    }
-
-    public List<Tag> getTags() {
-        return tags;
-    }
-
-    public void setTags(List<Tag> tags) {
-        this.tags = tags;
-    }
 
     public Article() {
     }
@@ -66,6 +50,23 @@ public class Article {
                 ", updateTime=" + updateTime +
                 ", views=" + views +
                 '}';
+    }
+
+
+    public Type getType() {
+        return type;
+    }
+
+    public void setType(Type type) {
+        this.type = type;
+    }
+
+    public List<Tag> getTags() {
+        return tags;
+    }
+
+    public void setTags(List<Tag> tags) {
+        this.tags = tags;
     }
 
     public String getFlag() {

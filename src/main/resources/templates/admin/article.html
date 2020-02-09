@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css">
-    <link rel="stylesheet" href="../../static/css/me.css" th:href="@{/css/me.css}">
+    <link rel="stylesheet" href="../../static/css/myAdmin.css" th:href="@{/css/myAdmin.css}">
 </head>
 <body>
 
@@ -65,7 +65,7 @@
                 <td th:text="${item.type.name}">测试</td>
                 <td th:text="${item.createTime}">2020-2-4 14:03</td>
                 <td th:text="${item.updateTime}">2020-2-4 14:03</td>
-                <td><i class="" th:classappend="${item.status} ? 'green large check circle icon' : 'red large eye slash icon'"></i></td>
+                <td><i class="" th:classappend="${item.status} ? 'green large eye icon' : 'red large low vision icon'"></i></td>
 
                 <td>
                     <a href="#" th:href="@{/admin/publish/{id}(id=${item.id})}" class="ui mini teal basic button">发布</a>
@@ -111,7 +111,6 @@
         </tr>
         </tfoot>
     </table>
-    <div th:text="${articles.content}"></div>
 
 </body>
 </html>

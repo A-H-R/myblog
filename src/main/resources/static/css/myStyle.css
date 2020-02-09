@@ -1,0 +1,6 @@
+.bg {
+    width: 3000px;
+    height: 2000px;
+    background-image: url("../images/bg/bg-2.jpg");
+    position: fixed;
+}

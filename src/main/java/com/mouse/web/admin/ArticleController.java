@@ -6,6 +6,7 @@ package com.mouse.web.admin;
 import com.mouse.dao.TagRepository;
 import com.mouse.dao.TypeRepository;
 import com.mouse.po.Article;
+import com.mouse.po.Tag;
 import com.mouse.service.ArticleService;
 import com.mouse.service.TagService;
 import com.mouse.service.TypeService;
@@ -19,6 +20,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.text.ParseException;
+import java.util.List;
 
 @Controller
 @RequestMapping("/admin")
@@ -52,12 +54,20 @@ public class ArticleController {
         if (id == -1){
             Article article = new Article();
             article.setStatus(false);
+            model.addAttribute("tagsId", null);
             model.addAttribute("article", article);
             return "admin/editArticle";
         } else {
             Article article = articleService.getOneArticle(id);
-            //  分类和标签没有做
-
+            //  编辑时标签处理
+            List<Tag> tags = article.getTags();
+            int size = tags.size();
+            StringBuffer tagsId = new StringBuffer();
+            for (int i = 0;i < size -1; i++ ) {
+                   tagsId.append(tags.get(i).getId() + "," );
+            }
+            tagsId.append(tags.get(size-1).getId());
+            model.addAttribute("tagsId", tagsId);
             model.addAttribute("article", article);
             return "admin/editArticle";
         }
@@ -67,9 +77,7 @@ public class ArticleController {
     //修改或新增一个文章
     @PostMapping("/article")
     public String SaveOrModifyArticle(Article article, RedirectAttributes attributes) throws ParseException {
-
         Article a = articleService.saveArticle(article);
-
         return "redirect:/admin/index";
     }
 
