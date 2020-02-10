@@ -1,6 +1,206 @@
+/*--------------------------index页面-----------------------------*/
+
 .bg {
     width: 3000px;
     height: 2000px;
     background-image: url("../images/bg/bg-2.jpg");
     position: fixed;
 }
+
+.m-card {
+    padding: 0.2em !important;
+    border-radius: 0em !important;
+    box-shadow: none !important;
+}
+.m-card-title {
+    padding: 0.8em;
+    background-color: #b4d6f7;
+    font-weight: 600;
+    font-size: 1.2em;
+}
+
+
+
+.m-div-inline >div {
+    display: inline-block !important;
+}
+
+.m-tips {
+    padding: 0.5em;
+    background-color: white;
+}
+
+
+
+
+
+.m-marker {
+    position: absolute !important;
+    top: 0em !important;
+    left: 105% !important;
+    padding: 1px!important;
+    background-color: green !important;
+    border-radius: 22px !important;
+    width: 23px !important;
+    box-shadow: 0px 0px 8px green;
+}
+.m-marker-style {
+    font-size: 10px;
+    color: white !important;
+}
+
+
+.m-small-info {
+    margin-right: 0.6em;
+    /*margin-top: 0.5em;*/
+    /*margin-bottom: 0.5em;*/
+    font-size: 0.9em;
+    color: #464646;
+}
+
+
+.m-image-outline {
+    /*padding: 2em 4em 0.8em 4em;*/
+    padding: 3em 1em;
+}
+
+.m-image {
+    padding: 6px;
+    border: 1px solid gray;
+    box-shadow: 0px 0px 4px grey;
+}
+
+.m-read-btn {
+    text-decoration: none;
+    padding: 0.5em;
+    color: #222;
+    border: 1px solid #222;
+    border-radius: 4px;
+}
+.m-read-btn:hover{
+    background-color: #222;
+    color: white;
+    cursor: pointer;
+}
+
+.m-hr {
+    margin-top: 2em;
+    width: 25%;
+    height: 0;
+}
+
+/*---------------------------------分隔符-----------------------------------*/
+/*---------------------分类页面---------------------------*/
+
+.m-category-title {
+    font-size: 2em !important;
+    font-weight: 700 !important;
+    text-shadow: 0px 0px 8px grey !important;
+}
+.m-category {
+    position: relative;
+    font-size: 1.5em;
+}
+
+
+.m-category-marker {
+    font-size: 12px;
+    margin-left: 12px;
+}
+
+.m-category-point {
+    width: 6px;
+    height: 6px;
+    background: gray;
+    display: inline-block;
+    margin-right: 1em;
+    border-radius: 50%;
+}
+
+.m-category-a {
+    text-decoration: none;
+    font-size: 1.8em;
+    color: #222;
+    font-family: cursive;
+}
+
+/*---------------------------------分隔符-----------------------------------*/
+/*---------------------时间轴---------------------------*/
+.m-time-padded {
+    padding: 2em 1em 0em 5em !important;
+}
+.m-time-point {
+    width: 16px;
+    height: 16px;
+    background: gray;
+    border-radius: 50%;
+    position: absolute;
+    top: 30%;
+}
+.m-point-right {
+    left: 95%;
+}
+.m-point-left {
+    left: -5%;
+}
+.m-time-year {
+    font-size: 3em;
+    padding: 0.5em;
+}
+
+.m-time-date {
+    padding: 1em 1em 1em 0em !important;
+    padding: 1em 0em;
+}
+.m-time-line {
+    width: 3px;
+    height: 100%;
+    background-color: gray;
+    position: absolute;
+    top: 0em;
+}
+.m-line-right {
+    left: 96%;
+}
+.m-line-left {
+    left: -4%;
+}
+.m-div-left {
+    display: inline-block;
+    position: relative;
+    width: 50%;
+}
+.m-div-right {
+    display: inline-block;
+    position: relative;
+    width: 50%;
+    left: 50%;
+}
+
+/*---------------------适配手机------------------------*/
+
+@media screen and (max-width: 768px){
+    .m-time-padded {
+        padding: 1em !important;
+    }
+    .m-mobile-timeDiv {
+        width: 100%;
+        left: 0%;
+    }
+    .m-mobile-line {
+        display: none;
+    }
+    .m-mobile-point {
+        display: none;
+    }
+}
+
+
+/*---------------------------------分隔符-----------------------------------*/
+/*---------------------标签---------------------------*/
+.m-tag {
+    padding: 0.5em 1em;
+    font-size: 32px;
+}
+
+
