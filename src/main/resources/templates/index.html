@@ -1,30 +1,26 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
-<head th:replace="admin/_common :: head()">
+<head th:replace="_comment :: head()">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>后台管理|首页</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css">
-    <link rel="stylesheet" href="../static/css/myFront.css">
-    <link rel="stylesheet" href="../static/css/myStyle.css">
-
 </head>
 <body>
     <div class="bg"></div>
-    <nav class="ui attached segment mBG-color-black m-padded-tb-small">
+    <nav th:replace="_comment :: menu(1)" class="ui attached segment mBG-color-black m-padded-tb-small">
         <div class="ui mini inverted secondary menu">
             <h1 class="ui header item" style="margin-right: 3em;">思想的巨人</h1>
             <div class="active item m-padded-tb-small">
-                <a href="#"><i class="ui large home icon"></i> 首页</a>
+                <a href="#" th:href="@{/}"><i class="ui large home icon"></i> 首页</a>
             </div>
             <div class="item">
-                <a href="#"><i class="ui large archive icon"></i>分类</a>
+                <a href="#" th:href="@{/category}"><i class="ui large archive icon"></i>分类</a>
             </div>
             <div class="item">
                 <a href="#"><i class="ui large archive icon"></i>时间轴</a>
             </div>
             <div class="item">
-                <a href="#"><i class="ui large tags icon"></i>标签</a>
+                <a href="#" th:href="@{/tag}"><i class="ui large tags icon"></i>标签</a>
             </div>
             <div class="item">
                 <a href="#"><i class="ui large coffee icon"></i>生活随笔</a>
@@ -90,38 +86,40 @@
                     消息提示：巴拉巴拉
                 </div>
                 <div style="background-color: white;opacity: 0.9;">
-                    <div class="ui center aligned attached basic segment" style="border: none;">
-                        <div href="#" style="display: inline-block;position: relative;padding: 0.5em;">
-                            <span class="ui header" style="font-size: 28px !important;">Springboot总结</span>
-                            <div class="m-marker m-marker-style">原</div>
+                    <div class="ui center aligned attached basic segment" style="border: none;" th:each="item:${articles.content}">
+                        <div style="display: inline-block;position: relative;padding: 0.5em;">
+                            <a class="ui header" style="font-size: 32px !important;" th:href="@{/article/{id}(id=${item.id})}">Springboot总结</a>
+                            <div class="m-marker m-marker-style" th:text="${item.flag}">原</div>
                         </div>
                         <div class="m-div-inline">
                             <div class="m-small-info">
                                 <span><i class="user icon"></i> 作者:</span>
-                                <span>胡瑞</span>
+                                <span th:text="${item.author}">胡瑞</span>
                             </div>
                             <div class="m-small-info">
                                 <span><i class="ui archive icon"></i> 分类:</span>
-                                <span>java</span>
+                                <span th:text="${item.type.name}">java</span>
                             </div>
                             <div class="m-small-info">
                                 <span><i class="calendar alternate icon"></i> 时间:</span>
-                                <span>2012-12-23 10:20</span>
+                                <span th:text="${item.updateTime}">2012-12-23 10:20</span>
                             </div>
                             <div class="m-small-info">
                                 <span><i class="eye icon"></i> 观看人数:</span>
-                                <span>50</span>
+                                <span th:text="${item.views}">50</span>
                             </div>
                         </div>
 
                         <div class="m-image-outline">
                             <div class="m-image">
-                                <img src="../static/images/bg/bg-2.jpg" alt="" style="width: 100%">
+                                <img src="../static/images/bg/bg-2.jpg" alt="" style="width: 100%" th:src="${item.picture}">
                             </div>
                         </div>
-                        <a class="m-read-btn">阅读全文</a>
+                        <a class="m-read-btn" th:href="@{/article/{id}(id=${item.id})}">阅读全文</a>
                         <hr class="m-hr">
                     </div>
+
+                    <!--/*-->
                     <div class="ui center aligned attached basic segment" style="border: none;">
                         <div href="#" style="display: inline-block;position: relative;padding: 0.5em;">
                             <span class="ui header" style="font-size: 28px !important;">Springboot总结</span>
@@ -187,12 +185,13 @@
                         <hr class="m-hr">
                     </div>
 
+                    <!--*/-->
 
 
                     <!----------翻页---------->
                     <div style="padding: 0em 3em 4em 3em;">
-                        <a href="#" class="m-read-btn" style="float: left;">上一页</a>
-                        <a href="#" class="m-read-btn" style="float: right;">下一页</a>
+                        <a href="#" th:href="@{/(page=${articles.number}-1)}" th:unless="${articles.first}" class="ui black button">上一页</a>
+                        <a href="#" th:href="@{/(page=${articles.number}+1)}" th:unless="${articles.last}" class="ui right floated black button">下一页</a>
                     </div>
                 </div>
             </div>

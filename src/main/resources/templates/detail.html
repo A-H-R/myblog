@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="_comment :: head()">
+    <meta charset="UTF-8">
+    <title>详情</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css">
+    <link rel="stylesheet" href="../static/css/myFront.css">
+    <link rel="stylesheet" href="../static/css/myStyle.css">
+    <link rel="stylesheet" href="../static/css/typo.css">
+    <link rel="stylesheet" href="../static/lib/prism/prism.css">
+    <link rel="stylesheet" href="../static/lib/tocbot/tocbot.css">
+</head>
+<body>
+    <div class="bg"></div>
+    <nav class="ui attached segment mBG-color-black m-padded-tb-small">
+        <div class="ui mini inverted secondary menu">
+            <h1 class="ui header item" style="margin-right: 3em;">思想的巨人</h1>
+            <div class="active item m-padded-tb-small">
+                <a href="#"><i class="ui large home icon"></i> 首页</a>
+            </div>
+            <div class="item">
+                <a href="#"><i class="ui large archive icon"></i>分类</a>
+            </div>
+            <div class="item">
+                <a href="#"><i class="ui large archive icon"></i>时间轴</a>
+            </div>
+            <div class="item">
+                <a href="#"><i class="ui large tags icon"></i>标签</a>
+            </div>
+            <div class="item">
+                <a href="#"><i class="ui large coffee icon"></i>生活随笔</a>
+            </div>
+            <div class="item">
+                <a href="#"><i class="ui large linkify icon"></i>友链</a>
+            </div>
+            <div class="item">
+                <a href="#"><i class="ui large paw icon"></i>关于我</a>
+            </div>
+        </div>
+    </nav>
+    <div class="m-padded">
+        <div class="ui grid">
+            <!-- --------左边--------- -->
+            <div class="three wide column">
+                <div class="mBG-color-white">
+                    <div class="m-card-title" align="center">目录</div>
+                    <ol class="myMenu"></ol>
+                </div>
+            </div>
+
+            <!------------中间文章------------>
+            <div class="ten wide column">
+                <div id="content" class="typo  typo-selection js-toc-content m-padded-lr-responsive m-padded-tb-large" style=" padding: 0em !important;">
+                    <div class="ui container">
+                        <div class="ui attached segment" th:object="${article}">
+                            <div>
+                                <a href="#" th:href="@{/}"><i class="arrow left icon"></i>首页</a>
+                            </div>
+                            <div style="position: relative;padding: 0.5em;" align="center">
+                                <p class="ui header" style="font-size: 32px !important;" th:text="*{title}">Springboot总结</p>
+                            </div>
+                            <div class="m-div-inline" align="center">
+                                <div class="m-small-info">
+                                    <span><i class="user icon"></i> 作者:</span>
+                                    <span th:text="*{author}">胡瑞</span>
+                                </div>
+                                <div class="m-small-info">
+                                    <span><i class="calendar alternate icon"></i> 时间:</span>
+                                    <span th:text="*{updateTime}">2012-12-23 10:20</span>
+                                </div>
+                                <div class="m-small-info">
+                                    <span><i class="ui archive icon"></i> 分类:</span>
+                                    <span th:text="*{type.name}">java</span>
+                                </div>
+                                <div class="m-small-info">
+                                    <span><i class="eye icon"></i> 观看人数:</span>
+                                    <span th:text="*{views}">50</span>
+                                </div>
+                            </div>
+                            <div class="m-image-outline">
+                                <div class="m-image">
+                                    <img src="../static/images/bg/bg-2.jpg" alt="" style="width: 100%" th:src="*{picture}">
+                                </div>
+                            </div>
+                            <!----------内容------------>
+                            <div class="myContent m-image-outline" th:text="*{content}">
+                                <h1>前言</h1>
+                                <p>的房价按开发商来的就是法律会计师的弗兰克第三节福利卡萨江东父老山东省立方空间阿打算来看所得税路口附近埃里克森 收到了咖啡机埃里克森第十六届开发来看 鲁大师咖啡机
+                                地方拉数据的管理看见颠覆了看见爱上登录十大垃圾分类看束带结发阿斯利康打飞机埃里克森的技术大里的空间gas来看感受到了科技来看大家三大立科技施蒂利克交房登录阿萨德立方空间d
+                                的结果来看健康的减肥拉开建档立卡的三等奖 阿拉基阿拉基暗地里看见 是大家来看ad多斯拉克见风使舵塑料袋咖啡就打算来看风景利达科技馆离开 打开了股价来看极大地离开的设计风格啦江东父老看到几个垃圾袋
+                                得分记录卡三等奖大家看了萨迪克俺家领导看风景广佛字减肥的观看拉我字个哦啊发动机可怜的开关架 噢啦登录简单萨拉副科级欧文莱阿卡丽大V记错了铝进口蜡 来的会计法来看几点几分狗年交房立刻就发了开发商
+                                 第三方拉科技地理辅导老师添加拉开距离数控刀具发怒你来的肯定就发啦独家独个哦按快了肯定就流口水的硅胶管 阿里看到房价拉斯裤兜能看到九分裤垃圾OA 简单快乐国家大事艺爱的深刻理解啊
+                                等等咖喱空间都uadfkd家科技咖喱快点感觉啊离开家单联开关骄傲ID搜嘎靠近了里的空间感Luis安居客劳动纠纷阿六了开发的股价来看简单佛if索拉卡感觉啊离开家
+                                固拉多开飞机稿字管理卡价格了肯定撒记录卡多岁时都爱噶几冷热空头破位图片  据了解埃里克砥节奉公天uejllksdjg乐凯大街哎算了库 </p>
+                                <h1>说明</h1>
+                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
+                                    standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a
+                                    type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining
+                                    essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum
+                                    passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem
+                                    Ipsum.</p>
+                                <pre ><code class="language-css">
+/* 标题应该更贴紧内容，并与其他块区分，margin 值要相应做优化 */
+h1,h2,h3,h4,h5,h6 {
+    line-height:1;font-family:Arial,sans-serif;margin:1.4em 0 0.8em;
+}
+h1{font-size:1.8em;}
+h2{font-size:1.6em;}
+h3{font-size:1.4em;}
+h4{font-size:1.2em;}
+h5,h6{font-size:1em;}
+
+/* 现代排版：保证块/段落之间的空白隔行 */
+.typo p, .typo pre, .typo ul, .typo ol, .typo dl, .typo form, .typo hr {
+    margin:1em 0 0.6em;
+}
+</code></pre>
+                            </div>
+
+                            <div style="padding: 0em 3em 4em 3em;">
+                                <a href="#" style="float: left;">< 上一页</a>
+                                <a href="#" style="float: right;">下一页 ></a>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!------------右边------------>
+            <div class="three wide column">
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.js"></script>
+        <script src="../static/js/admin/index.js"></script>
+        <script src="../static/lib/prism/prism.js"></script>
+        <script src="../static/lib/tocbot/tocbot.js"></script>
+    </div>
+
+    <script>
+        tocbot.init({
+            // Where to render the table of contents.
+            tocSelector: '.myMenu',
+            // Where to grab the headings to build the table of contents.
+            contentSelector: '.myContent',
+            // Which headings to grab inside of the contentSelector element.
+            headingSelector: 'h1, h2, h3',
+        });
+    </script>
+
+
+</body>
+</html>

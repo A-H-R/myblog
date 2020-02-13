@@ -40,7 +40,7 @@ public class ArticleController {
     //    Pageable pageable = new PageRequest(0, size, sort);
 
     @GetMapping("/article")
-    public String toArticle(@PageableDefault(size = 3,sort = {"updateTime"},direction = Sort.Direction.DESC) Pageable pageable,
+    public String toArticle(@PageableDefault(size = 6,sort = {"updateTime"},direction = Sort.Direction.DESC) Pageable pageable,
                             Model model) {
         model.addAttribute("articles", articleService.listArticle(pageable));
         return "admin/article";
@@ -63,10 +63,12 @@ public class ArticleController {
             List<Tag> tags = article.getTags();
             int size = tags.size();
             StringBuffer tagsId = new StringBuffer();
-            for (int i = 0;i < size -1; i++ ) {
-                   tagsId.append(tags.get(i).getId() + "," );
+            if (size > 0) {
+                for (int i = 0;i < size -1; i++ ) {
+                    tagsId.append(tags.get(i).getId() + "," );
+                }
+                tagsId.append(tags.get(size-1).getId());
             }
-            tagsId.append(tags.get(size-1).getId());
             model.addAttribute("tagsId", tagsId);
             model.addAttribute("article", article);
             return "admin/editArticle";

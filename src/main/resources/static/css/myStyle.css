@@ -61,7 +61,7 @@
 
 .m-image-outline {
     /*padding: 2em 4em 0.8em 4em;*/
-    padding: 3em 1em;
+    padding: 3em 5em 4em;
 }
 
 .m-image {
@@ -87,6 +87,12 @@
     margin-top: 2em;
     width: 25%;
     height: 0;
+}
+
+@media screen and (max-width: 768px){
+    .m-image-outline {
+        padding: 3em 1em 1em;
+    }
 }
 
 /*---------------------------------分隔符-----------------------------------*/
@@ -127,7 +133,7 @@
 /*---------------------------------分隔符-----------------------------------*/
 /*---------------------时间轴---------------------------*/
 .m-time-padded {
-    padding: 2em 1em 0em 5em !important;
+    padding: 2em 1em 2em 5em !important;
 }
 .m-time-point {
     width: 16px;
@@ -149,7 +155,7 @@
 }
 
 .m-time-date {
-    padding: 1em 1em 1em 0em !important;
+    padding: 0.5em 1em 0.5em 0em !important;
     padding: 1em 0em;
 }
 .m-time-line {
@@ -170,6 +176,10 @@
     position: relative;
     width: 50%;
 }
+
+
+
+
 .m-div-right {
     display: inline-block;
     position: relative;

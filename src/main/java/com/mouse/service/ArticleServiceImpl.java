@@ -8,11 +8,14 @@ import com.mouse.dao.ArticleRepository;
 import com.mouse.po.Article;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 @Service
 public class ArticleServiceImpl implements ArticleService{
@@ -49,6 +52,20 @@ public class ArticleServiceImpl implements ArticleService{
     @Override
     public Page<Article> listArticle(Pageable pageable) {
         return articleRepository.findAll(pageable);
+    }
+
+
+    @Override
+    public Page<Article> listArticleByTime(Pageable pageable) {
+//        Sort sort = new Sort(Sort.Direction.DESC,"updateTime");
+//        Pageable pageable = new PageRequest(0,10000,sort);
+
+        return articleRepository.findShowArticle(pageable);
+    }
+
+    @Override
+    public Article showArticle(Long id, Boolean status) {
+        return articleRepository.findArticleByIdAndStatus(id,true);
     }
 
     @Override

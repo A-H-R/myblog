@@ -1,32 +1,41 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
-<head th:replace="admin/_common :: head()">
+<head th:fragment="head()">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>后台管理|首页</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css">
-    <link rel="stylesheet" href="../static/css/myFront.css">
-    <link rel="stylesheet" href="../static/css/myStyle.css">
+    <link rel="stylesheet" href="../static/css/myFront.css" th:href="@{/css/myFront.css}">
+    <link rel="stylesheet" href="../static/css/myStyle.css" th:href="@{/css/myStyle.css}">
 
 </head>
 <body>
-<nav class="ui attached segment mBG-color-black">
-    <div class="ui container">
-        <div class="ui inverted secondary menu">
-            <h2 class="ui header item" style="margin-right: 3em;">思想的巨人</h2>
-            <div class="active item">
-                <a href="#"><i class="ui large home icon"></i> 首页</a>
-            </div>
-            <div class="item">
-                <a href="#"><i class="ui large archive icon"></i> 归类</a>
-            </div>
-            <div class="item">
-                <a href="#"><i class="ui large tags icon"></i> 标签</a>
-            </div>
-            <div class="item">
-                <a href="#"><i class="ui large coffee icon"></i> 生活随笔</a>
-            </div>
+    <nav th:fragment="menu(n)" class="ui attached segment mBG-color-black m-padded-tb-small">
+    <div class="ui mini inverted secondary menu">
+        <h1 class="ui header item" style="margin-right: 3em;">思想的巨人</h1>
+        <div class="item m-padded-tb-small" th:classappend="${n==1} ? 'active'">
+            <a href="#" th:href="@{/}"><i class="ui large home icon"></i> 首页</a>
         </div>
+        <div class="item" th:classappend="${n==2} ? 'active'">
+            <a href="#" th:href="@{/category}"><i class="ui large archive icon"></i>分类</a>
+        </div>
+        <div class="item" th:classappend="${n==3} ? 'active'">
+            <a href="#" th:href="@{/time}"><i class="ui large archive icon"></i>时间轴</a>
+        </div>
+        <div class="item" th:classappend="${n==4} ? 'active'">
+            <a href="#" th:href="@{/tag}"><i class="ui large tags icon"></i>标签</a>
+        </div>
+        <!--/*-->
+        <div class="item" th:classappend="${n==5} ? 'active'">
+            <a href="#"><i class="ui large coffee icon"></i>生活随笔</a>
+        </div>
+        <div class="item" th:classappend="${n==6} ? 'active'">
+            <a href="#"><i class="ui large linkify icon"></i>友链</a>
+        </div>
+        <div class="item" th:classappend="${n==7} ? 'active'">
+            <a href="#"><i class="ui large paw icon"></i>关于我</a>
+        </div>
+        <!--*/-->
     </div>
 </nav>
 <div class="m-padded">

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="_comment :: head()">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>分类</title>
@@ -10,7 +10,7 @@
 </head>
 <body>
     <div class="bg"></div>
-    <nav class="ui attached segment mBG-color-black m-padded-tb-small">
+    <nav th:replace="_comment :: menu(2)" class="ui attached segment mBG-color-black m-padded-tb-small">
         <div class="ui mini inverted secondary menu">
             <h1 class="ui header item" style="margin-right: 3em;">思想的巨人</h1>
             <div class="active item m-padded-tb-small">
@@ -41,65 +41,55 @@
             <div class="ui attached segment">
                 <div class="ui grid">
                     <div class="five wide column">
-                        <div class="m-category-title" align="center">Category</div>
-                        <div align="center" style="margin-top: 2em;">
+                        <div class="m-category-title" align="center" style="margin-bottom: 1em;">Category</div>
+                        <div style="padding: 0em 2em;" th:each="type : ${types}">
                             <div class="m-padded-small m-category">
-                               <i class="folder icon"></i> <a href="#">java<span class="m-category-marker">(#123)</span></a>
+                               <i class="folder icon"></i> <a href="#" th:text="${type.name}">java</a><span class="m-category-marker" th:text="'(#'+${#arrays.length(type.articles)}+')'">(#123)</span>
                             </div>
-                            <div class="m-padded-small m-category">
-                                <i class="folder icon"></i> <a href="#">java<span class="m-category-marker">(#123)</span></a>
-                            </div>
+                            <!--/*-->
                             <div class="m-padded-small m-category">
                                 <i class="folder icon"></i> <a href="#">java<span class="m-category-marker">(#123)</span></a>
                             </div>
                             <div class="m-padded-small m-category">
                                 <i class="folder icon"></i> <a href="#">java<span class="m-category-marker">(#123)</span></a>
                             </div>
+                            <div class="m-padded-small m-category">
+                                <i class="folder icon"></i> <a href="#">java<span class="m-category-marker">(#123)</span></a>
+                            </div>
+                            <!--*/-->
+                        </div>
+
+                        <div th:each="type:${types}">
+                            <div th:text="${#arrays.length(type.articles)}"></div>
                         </div>
                     </div>
                     <div class="eleven wide column">
-                        <div class="m-category-title" align="center">共有**篇文章</div>
+                        <div class="m-category-title" align="center">共有`<span th:text="${#arrays.length(articles)}"></span>`篇文章</div>
                         <hr style="margin-top: 2em;visibility: hidden;">
                         <div>
                              全部
                         </div>
                         <div>
-                            <div style="padding: 1em;">
+                            <div style="padding: 1em;" th:each="article : ${articles}">
                                 <div class="m-category-point"></div>
-                                <a href="#" class="m-category-a">纵观自己大学三年活得像条狗，收获啥没有</a>
+                                <a href="#" class="m-category-a" th:text="${article.title}">纵观自己大学三年活得像条狗，收获啥没有</a>
                                 <div class="m-div-inline" style="padding: 0.5em 1.5em;">
                                     <div class="m-small-info">
                                         <span><i class="user icon"></i> 作者:</span>
-                                        <span>胡瑞</span>
+                                        <span th:text="${article.author}">胡瑞</span>
                                     </div>
                                     <div class="m-small-info">
                                         <span><i class="calendar alternate icon"></i> 时间:</span>
-                                        <span>2012-12-23 10:20</span>
+                                        <span th:text="${article.updateTime}">2012-12-23 10:20</span>
+<!--                                        <span th:text="${#strings.substring(article.updateTime,5)}">2012-12-23 10:20</span>-->
                                     </div>
                                     <div class="m-small-info">
-                                        <span><i class="eye icon"></i> 观看人数:</span>
-                                        <span>50</span>
+                                        <span><i class="ui archive icon"></i> 分类:</span>
+                                        <span th:text="${article.type.name}">java</span>
                                     </div>
                                 </div>
                             </div>
-                            <div style="padding: 1em;">
-                                <div class="m-category-point"></div>
-                                <a href="#" class="m-category-a">南京信息工程大学三年游</a>
-                                <div class="m-div-inline" style="padding: 0.5em 1.5em;">
-                                    <div class="m-small-info">
-                                        <span><i class="user icon"></i> 作者:</span>
-                                        <span>胡瑞</span>
-                                    </div>
-                                    <div class="m-small-info">
-                                        <span><i class="calendar alternate icon"></i> 时间:</span>
-                                        <span>2012-12-23 10:20</span>
-                                    </div>
-                                    <div class="m-small-info">
-                                        <span><i class="eye icon"></i> 观看人数:</span>
-                                        <span>50</span>
-                                    </div>
-                                </div>
-                            </div>
+                            <!--/*-->
                             <div style="padding: 1em;">
                                 <div class="m-category-point"></div>
                                 <a href="#" class="m-category-a">南京信息工程大学三年游</a>
@@ -136,6 +126,25 @@
                                     </div>
                                 </div>
                             </div>
+                            <div style="padding: 1em;">
+                                <div class="m-category-point"></div>
+                                <a href="#" class="m-category-a">南京信息工程大学三年游</a>
+                                <div class="m-div-inline" style="padding: 0.5em 1.5em;">
+                                    <div class="m-small-info">
+                                        <span><i class="user icon"></i> 作者:</span>
+                                        <span>胡瑞</span>
+                                    </div>
+                                    <div class="m-small-info">
+                                        <span><i class="calendar alternate icon"></i> 时间:</span>
+                                        <span>2012-12-23 10:20</span>
+                                    </div>
+                                    <div class="m-small-info">
+                                        <span><i class="eye icon"></i> 观看人数:</span>
+                                        <span>50</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--*/-->
                         </div>
                     </div>
                 </div>
