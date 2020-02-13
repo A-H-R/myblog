@@ -6,16 +6,15 @@ package com.mouse.service;
 import com.mouse.NotFoundException;
 import com.mouse.dao.ArticleRepository;
 import com.mouse.po.Article;
+import com.mouse.util.MarkdownUtils;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.List;
 
 @Service
 public class ArticleServiceImpl implements ArticleService{
@@ -63,10 +62,23 @@ public class ArticleServiceImpl implements ArticleService{
         return articleRepository.findShowArticle(pageable);
     }
 
+
+
+
     @Override
-    public Article showArticle(Long id, Boolean status) {
-        return articleRepository.findArticleByIdAndStatus(id,true);
+    public Article getAndConvert(Long id) {
+        Article article = articleRepository.findArticleByIdAndStatus(id, true);
+        if (article == null) {
+            throw new NotFoundException("文章飞了，没有了~");
+        }
+        Article a = new Article();
+        BeanUtils.copyProperties(article, a);
+        String content = a.getContent();
+        a.setContent(MarkdownUtils.markdownToHtmlExtensions(content));
+        articleRepository.updateViews(id);
+        return a;
     }
+
 
     @Override
     public Article updateArticle(Long id) {

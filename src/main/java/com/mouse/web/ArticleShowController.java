@@ -46,7 +46,7 @@ public class ArticleShowController {
     @GetMapping("/article/{id}")
     public String toDetail(@PathVariable Long id, Model model) {
 
-        model.addAttribute("article", articleService.showArticle(id, true));
+        model.addAttribute("article", articleService.getAndConvert(id));
 
         return "detail";
     }

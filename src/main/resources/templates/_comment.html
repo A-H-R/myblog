@@ -7,37 +7,48 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css">
     <link rel="stylesheet" href="../static/css/myFront.css" th:href="@{/css/myFront.css}">
     <link rel="stylesheet" href="../static/css/myStyle.css" th:href="@{/css/myStyle.css}">
+    <link rel="stylesheet" href="../static/css/typo.css" th:href="@{/css/typo.css}">
+    <link rel="stylesheet" href="../static/lib/prism/prism.css" th:href="@{/lib/prism/prism.css}">
+    <link rel="stylesheet" href="../static/lib/tocbot/tocbot.css" th:href="@{/lib/tocbot/tocbot.css}">
 
 </head>
 <body>
     <nav th:fragment="menu(n)" class="ui attached segment mBG-color-black m-padded-tb-small">
-    <div class="ui mini inverted secondary menu">
-        <h1 class="ui header item" style="margin-right: 3em;">思想的巨人</h1>
-        <div class="item m-padded-tb-small" th:classappend="${n==1} ? 'active'">
-            <a href="#" th:href="@{/}"><i class="ui large home icon"></i> 首页</a>
-        </div>
-        <div class="item" th:classappend="${n==2} ? 'active'">
-            <a href="#" th:href="@{/category}"><i class="ui large archive icon"></i>分类</a>
-        </div>
-        <div class="item" th:classappend="${n==3} ? 'active'">
-            <a href="#" th:href="@{/time}"><i class="ui large archive icon"></i>时间轴</a>
-        </div>
-        <div class="item" th:classappend="${n==4} ? 'active'">
-            <a href="#" th:href="@{/tag}"><i class="ui large tags icon"></i>标签</a>
-        </div>
-        <!--/*-->
-        <div class="item" th:classappend="${n==5} ? 'active'">
-            <a href="#"><i class="ui large coffee icon"></i>生活随笔</a>
-        </div>
-        <div class="item" th:classappend="${n==6} ? 'active'">
-            <a href="#"><i class="ui large linkify icon"></i>友链</a>
-        </div>
-        <div class="item" th:classappend="${n==7} ? 'active'">
-            <a href="#"><i class="ui large paw icon"></i>关于我</a>
-        </div>
-        <!--*/-->
+        <div class="ui mini inverted secondary stackable menu">
+            <div class="item">
+                <h1 class="ui header m-logo" style="margin-right: 3em; color: white;">思想的巨人</h1>
+            </div>
+            <div class="m-hidden item m-mobile-hide" th:classappend="${n==1} ? 'active'">
+                <a href="#" th:href="@{/}"><i class="ui large home icon"></i> 首页</a>
+            </div>
+            <div class="m-hidden item m-mobile-hide" th:classappend="${n==2} ? 'active'">
+                <a href="#" th:href="@{/category/-1}"><i class="ui large archive icon"></i>分类</a>
+            </div>
+            <div class="m-hidden item m-mobile-hide" th:classappend="${n==3} ? 'active'">
+                <a href="#" th:href="@{/time}"><i class="ui large archive icon"></i>时间轴</a>
+            </div>
+            <div class="m-hidden item m-mobile-hide" th:classappend="${n==4} ? 'active'">
+                <a href="#" th:href="@{/tag}"><i class="ui large tags icon"></i>标签</a>
+            </div>
+            <!--/*-->
+            <div class="m-hidden item m-mobile-hide" th:classappend="${n==5} ? 'active'">
+                <a href="#"><i class="ui large coffee icon"></i>生活随笔</a>
+            </div>
+            <div class="m-hidden item m-mobile-hide" th:classappend="${n==6} ? 'active'">
+                <a href="#"><i class="ui large linkify icon"></i>友链</a>
+            </div>
+            <div class="m-hidden item m-mobile-hide" th:classappend="${n==7} ? 'active'">
+                <a href="#"><i class="ui large paw icon"></i>关于我</a>
+            </div>
+            <!--*/-->
+
     </div>
-</nav>
+
+        <div class="ui icon button m-right-top m-mobile-show" id="mobile">
+            <i class="sidebar icon" style="color: white!important;"></i>
+        </div>
+
+    </nav>
 <div class="m-padded">
     <div class="ui grid">
         <!-- --------左边--------- -->
@@ -74,20 +85,19 @@
 
 
 
-<div>
+<div th:fragment="js()">
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.js"></script>
-    <script src="../../static/js/admin/index.js" th:src="@{/js/admin/index.js}"></script>
+    <script src="../static/js/index.js" th:src="@{/js/index.js}"></script>
+    <script src="../static/lib/prism/prism.js" th:src="@{/lib/prism/prism.js}"></script>
+    <script src="../static/lib/tocbot/tocbot.js" th:src="@{/lib/tocbot/tocbot.js}"></script>
 </div>
 
 <script>
-    $('.menu.toggle').click(function () {
-        $('.m-item').toggleClass('m-mobile-hide');
-    });
-
     $('.ui.dropdown').dropdown({
         on : 'hover'
     });
+
 
 </script>
 

@@ -6,6 +6,17 @@
     background-image: url("../images/bg/bg-2.jpg");
     position: fixed;
 }
+.m-logo {
+    margin-left: 3.2em !important;
+}
+.m-right-top {
+    position: absolute !important;
+    top: 0 !important;
+    right: 0 !important;
+    background-color: #222 !important;
+    padding: 2.5em 1.5em 0em !important;
+}
+
 
 .m-card {
     padding: 0.2em !important;
@@ -30,14 +41,10 @@
     background-color: white;
 }
 
-
-
-
-
 .m-marker {
     position: absolute !important;
     top: 0em !important;
-    left: 105% !important;
+    left: 100% !important;
     padding: 1px!important;
     background-color: green !important;
     border-radius: 22px !important;
@@ -61,8 +68,10 @@
 
 .m-image-outline {
     /*padding: 2em 4em 0.8em 4em;*/
-    padding: 3em 5em 4em;
+    /*padding: 3em 5em 4em;*/
+    padding: 5em 5em 6em;
 }
+
 
 .m-image {
     padding: 6px;
@@ -89,9 +98,35 @@
     height: 0;
 }
 
+
+.m-mobile-show {
+    display: none !important;
+}
+
 @media screen and (max-width: 768px){
+    .bg {
+        width: 3000px;
+        height: 2000px;
+        background-color: white;
+        background-image: none;
+        position: fixed;
+    }
+
+    .m-logo {
+        margin: 0 auto !important;
+    }
+
+    .m-mobile-hide {
+        display: none !important;
+    }
+
+
+    .m-mobile-show {
+        display: block !important;
+    }
+
     .m-image-outline {
-        padding: 3em 1em 1em;
+        padding: 3em 1em 4em;
     }
 }
 
@@ -100,8 +135,8 @@
 
 .m-category-title {
     font-size: 2em !important;
-    font-weight: 700 !important;
-    text-shadow: 0px 0px 8px grey !important;
+    font-weight: 500 !important;
+    text-shadow: 0px 0px 4px grey !important;
 }
 .m-category {
     position: relative;
@@ -128,6 +163,31 @@
     font-size: 1.8em;
     color: #222;
     font-family: cursive;
+}
+
+.m-category-padding {
+    padding: 2em 5em !important;
+}
+
+@media screen and (max-width: 768px){
+
+    .m-category-title {
+        font-size: 1.5em !important;
+        font-weight: 500 !important;
+        text-shadow: 0px 0px 4px grey !important;
+    }
+    .m-category {
+        position: relative;
+        font-size: 1em;
+    }
+    .m-category-a {
+        text-decoration: none;
+        font-size: 1.2em;
+        color: #222;
+        font-family: cursive;
+    }
+
+
 }
 
 /*---------------------------------分隔符-----------------------------------*/
@@ -202,6 +262,10 @@
     }
     .m-mobile-point {
         display: none;
+    }
+    .m-mobile-noPadding {
+        padding: 0em !important;
+        border: none !important;
     }
 }
 

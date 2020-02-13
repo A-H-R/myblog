@@ -40,10 +40,9 @@
     <div class="ui attached segment m-time-padded">
         <div>
             <div th:each="item:${articles}">
-<!--                <div align="center" class="m-time-year" th:text="${years}>item.updateTime?'2019':'2018'">2019</div>-->
                 <div  th:with="rand=${#numbers.formatDecimal(T(java.lang.Math).floor(T(java.lang.Math).random()*2),1,0)}">
                 <div class="m-mobile-timeDiv"  th:classappend="${rand}==1 ? 'm-div-left' : 'm-div-right'" style="padding: 1em;">
-                    <div class="m-time-point" th:classappend="${rand}==1?'m-point-right':'m-point-left'"></div>
+                    <div class="m-time-point m-mobile-point" th:classappend="${rand}==1?'m-point-right':'m-point-left'"></div>
                     <div class="m-time-date" th:text="${item.updateTime}">01-12</div>
                     <div class="m-div-inline" style="padding: 0.5em 0em;">
                         <div class="m-small-info">
@@ -59,8 +58,8 @@
                             <span th:text="${item.views}">50</span>
                         </div>
                     </div>
-                    <a href="#" class="m-category-a" th:text="${item.title}">纵观自己大学三年活得像条狗，收获啥没有</a>
-                    <div class="m-time-line" th:classappend="${rand}==1?'m-line-right':'m-line-left'"></div>
+                    <a href="#" class="m-category-a" th:href="@{/article/{id}(id=${item.id})}" th:text="${item.title}">纵观自己大学三年活得像条狗，收获啥没有</a>
+                    <div class="m-time-line m-mobile-line" th:classappend="${rand}==1?'m-line-right':'m-line-left'"></div>
                 </div>
             </div>
             </div>
@@ -95,5 +94,9 @@
         </div>
     </div>
 </div>
+
+
+<div th:replace="_comment :: js()"></div>
+
 </body>
 </html>

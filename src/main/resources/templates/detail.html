@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
-<head th:replace="_comment :: head()">
+<head th:fragment="head()">
     <meta charset="UTF-8">
     <title>详情</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css">
-    <link rel="stylesheet" href="../static/css/myFront.css">
-    <link rel="stylesheet" href="../static/css/myStyle.css">
-    <link rel="stylesheet" href="../static/css/typo.css">
-    <link rel="stylesheet" href="../static/lib/prism/prism.css">
-    <link rel="stylesheet" href="../static/lib/tocbot/tocbot.css">
+    <link rel="stylesheet" href="../static/css/myFront.css" th:href="@{/css/myFront.css}">
+    <link rel="stylesheet" href="../static/css/myStyle.css" th:href="@{/css/myStyle.css}">
+    <link rel="stylesheet" href="../static/css/typo.css" th:href="@{/css/typo.css}">
+    <link rel="stylesheet" href="../static/lib/prism/prism.css" th:href="@{/lib/prism/prism.css}">
+    <link rel="stylesheet" href="../static/lib/tocbot/tocbot.css" th:href="@{/lib/tocbot/tocbot.css}">
 </head>
 <body>
     <div class="bg"></div>
-    <nav class="ui attached segment mBG-color-black m-padded-tb-small">
-        <div class="ui mini inverted secondary menu">
+    <nav th:replace="_comment :: menu(1)" class="ui attached segment mBG-color-black m-padded-tb-small">
+        <div class="ui mini inverted secondary stackable menu">
             <h1 class="ui header item" style="margin-right: 3em;">思想的巨人</h1>
             <div class="active item m-padded-tb-small">
                 <a href="#"><i class="ui large home icon"></i> 首页</a>
@@ -39,7 +39,7 @@
         </div>
     </nav>
     <div class="m-padded">
-        <div class="ui grid">
+        <div class="ui stackable grid">
             <!-- --------左边--------- -->
             <div class="three wide column">
                 <div class="mBG-color-white">
@@ -49,15 +49,14 @@
             </div>
 
             <!------------中间文章------------>
-            <div class="ten wide column">
-                <div id="content" class="typo  typo-selection js-toc-content m-padded-lr-responsive m-padded-tb-large" style=" padding: 0em !important;">
-                    <div class="ui container">
-                        <div class="ui attached segment" th:object="${article}">
-                            <div>
-                                <a href="#" th:href="@{/}"><i class="arrow left icon"></i>首页</a>
-                            </div>
-                            <div style="position: relative;padding: 0.5em;" align="center">
-                                <p class="ui header" style="font-size: 32px !important;" th:text="*{title}">Springboot总结</p>
+            <div class="ten wide column m-mobile-noPadding">
+                <div id="content" class="typo typo-selection js-toc-content m-padded-lr-responsive" style="padding: 0em !important;">
+                    <div>
+                        <div class="ui attached basic segment m-mobile-noPadding" th:object="${article}">
+                            <br>
+                            <br>
+                            <div style="position: relative;padding: 1.5em;" align="center">
+                                <div class="ui header" style="font-size: 32px !important;" th:text="*{title}">Springboot总结</div>
                             </div>
                             <div class="m-div-inline" align="center">
                                 <div class="m-small-info">
@@ -77,13 +76,16 @@
                                     <span th:text="*{views}">50</span>
                                 </div>
                             </div>
+
+                            <br>
+                            <br>
                             <div class="m-image-outline">
                                 <div class="m-image">
                                     <img src="../static/images/bg/bg-2.jpg" alt="" style="width: 100%" th:src="*{picture}">
                                 </div>
                             </div>
                             <!----------内容------------>
-                            <div class="myContent m-image-outline" th:text="*{content}">
+                            <div class="myContent m-image-outline" th:utext="*{content}">
                                 <h1>前言</h1>
                                 <p>的房价按开发商来的就是法律会计师的弗兰克第三节福利卡萨江东父老山东省立方空间阿打算来看所得税路口附近埃里克森 收到了咖啡机埃里克森第十六届开发来看 鲁大师咖啡机
                                 地方拉数据的管理看见颠覆了看见爱上登录十大垃圾分类看束带结发阿斯利康打飞机埃里克森的技术大里的空间gas来看感受到了科技来看大家三大立科技施蒂利克交房登录阿萨德立方空间d
@@ -133,12 +135,12 @@ h5,h6{font-size:1em;}
         </div>
     </div>
 
-    <div>
-        <script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
+    <div th:replace="_comment :: js()">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
         <script src="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.js"></script>
-        <script src="../static/js/admin/index.js"></script>
-        <script src="../static/lib/prism/prism.js"></script>
-        <script src="../static/lib/tocbot/tocbot.js"></script>
+        <script src="../static/js/index.js" th:src="@{/js/index.js}"></script>
+        <script src="../static/lib/prism/prism.js" th:src="@{/lib/prism/prism.js}"></script>
+        <script src="../static/lib/tocbot/tocbot.js" th:src="@{/lib/tocbot/tocbot.js}"></script>
     </div>
 
     <script>

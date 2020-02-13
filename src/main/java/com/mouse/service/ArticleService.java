@@ -4,6 +4,7 @@ package com.mouse.service;
  */
 
 import com.mouse.po.Article;
+import com.mouse.po.Type;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
@@ -27,5 +28,11 @@ public interface ArticleService {
 
     Page<Article> listArticleByTime(Pageable pageable);
 
-    Article showArticle(Long id,Boolean status);
+
+
+    Article getAndConvert(Long id);
+
+
+
+
 }

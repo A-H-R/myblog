@@ -65,7 +65,11 @@ a{
 
 
 
-
+@media screen and (max-width: 768px){
+    .m-padded {
+        padding: 0em!important;
+    }
+}
 
 
 
