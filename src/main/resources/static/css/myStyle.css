@@ -1,9 +1,9 @@
 /*--------------------------index页面-----------------------------*/
 
 .bg {
-    width: 3000px;
-    height: 2000px;
-    background-image: url("../images/bg/bg-2.jpg");
+    width: 1530px;
+    height: 750px;
+    background-image: url("../images/bg/bg.jpg");
     position: fixed;
 }
 .m-logo {
@@ -69,7 +69,7 @@
 .m-image-outline {
     /*padding: 2em 4em 0.8em 4em;*/
     /*padding: 3em 5em 4em;*/
-    padding: 5em 5em 6em;
+    padding: 3em 5em 0em;
 }
 
 
@@ -276,5 +276,55 @@
     padding: 0.5em 1em;
     font-size: 32px;
 }
+@media screen and (max-width: 768px){
+    .m-tag {
+        padding: 1em 0.2em;
+        font-size: 12px;
+    }
+    .m-tag span {
+        margin: 0;
+    }
+    .m-mobile-tbPadding {
+        padding: 2em 0em !important;
+    }
+}
 
 
+
+/*---------------------------------分隔符-----------------------------------*/
+/*---------------------详情---------------------------*/
+.m-mobile-list {
+    position: fixed;
+    width: 36px;
+    opacity: 0.8;
+    box-shadow: 0px 0px 7px grey !important;
+    z-index: 1;
+    right: 6px;
+    bottom: 13em;
+}
+.m-mobile-list2 {
+    position: fixed;
+    width: 36px;
+    opacity: 0.8;
+    box-shadow: 0px 0px 7px grey !important;
+    z-index: 1;
+    right: 6px;
+    bottom: 9em;
+}
+
+
+@media screen and (max-width: 768px){
+    .m-mobile-showList {
+        display: inline-block;
+        position: fixed;
+        z-index: 1;
+        padding: 0em 1em;
+        background: #f3f3f3;
+        right: 4em;
+        bottom: 6em;
+        box-shadow: 0px 0px 5px grey;
+    }
+    .m-mobile-showList ol {
+        padding: 0em !important;
+    }
+}

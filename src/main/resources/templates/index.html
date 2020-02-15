@@ -39,7 +39,7 @@
             <div class="three wide column m-mobile-hide">
                 <div class="ui card m-card">
                     <div class="image">
-                        <img src="https://unsplash.it/400/400?image=1005" alt="" style="width: 100%">
+                        <img th:src="@{/images/avatar/avatar-1.jpeg}" alt="" style="width: 100%">
                     </div>
                     <div class="content" style="padding: 0.6em;">
                         <h2 class="lager header" style="margin-bottom: 0.2em;">InvisibleMouse</h2>
@@ -112,7 +112,9 @@
                                 <img src="../static/images/bg/bg-2.jpg" alt="" style="width: 100%" th:src="${item.picture}">
                             </div>
                         </div>
-                        <a class="m-read-btn" th:href="@{/article/{id}(id=${item.id})}">阅读全文</a>
+                        <div style="padding: 5em 0em 0em;" class="m-mobile-noPadding">
+                            <a class="m-read-btn" th:href="@{/article/{id}(id=${item.id})}">阅读全文</a>
+                        </div>
                         <hr class="m-hr">
                     </div>
 
