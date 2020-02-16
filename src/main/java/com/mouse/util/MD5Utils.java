@@ -42,7 +42,7 @@ public class MD5Utils {
 
 
     public static void main(String[] args) throws NoSuchAlgorithmException {
-        System.out.println(code("123456"));
+        System.out.println(code("mouse"));
     }
 
 

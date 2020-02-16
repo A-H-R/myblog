@@ -6,6 +6,7 @@ package com.mouse.web.admin;
 
 import com.mouse.po.User;
 import com.mouse.service.UserService;
+import com.mouse.util.MD5Utils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpSession;
+import java.security.NoSuchAlgorithmException;
 
 @Controller
 @RequestMapping("/admin")
@@ -38,8 +40,8 @@ public class LoginController {
     public String login(@RequestParam String username,
                         @RequestParam String password,
                         HttpSession session,
-                        RedirectAttributes attributes) {
-        User user = userService.checkUser(username, password);
+                        RedirectAttributes attributes) throws NoSuchAlgorithmException {
+        User user = userService.checkUser(username, MD5Utils.code(password));
         if (user != null) {
             //  查到
             user.setPassword(null);

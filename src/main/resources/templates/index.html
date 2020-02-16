@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
-<head th:replace="_comment :: head()">
+<head th:replace="_comment :: head(~{::title})">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>后台管理|首页</title>
+    <title>首页|MOUSE</title>
 </head>
 <body>
     <div class="bg"></div>
@@ -19,7 +19,12 @@
             <div class="item">
                 <a href="#"><i class="ui large archive icon"></i>时间轴</a>
             </div>
-            <div class="item">
+
+            </div>
+    </nav>
+    <div class="m-padded">
+        <div class="ui stackable grid">
+            <!-- ----        <div class="item">
                 <a href="#" th:href="@{/tag}"><i class="ui large tags icon"></i>标签</a>
             </div>
             <div class="item">
@@ -30,16 +35,11 @@
             </div>
             <div class="item">
                 <a href="#"><i class="ui large paw icon"></i>关于我</a>
-            </div>
-            </div>
-    </nav>
-    <div class="m-padded">
-        <div class="ui stackable grid">
-            <!-- --------左边--------- -->
+            </div>----左边--------- -->
             <div class="three wide column m-mobile-hide">
                 <div class="ui card m-card">
                     <div class="image">
-                        <img th:src="@{/images/avatar/avatar-1.jpeg}" alt="" style="width: 100%">
+                        <img th:src="@{/images/avatar/avatar-2.jpeg}" alt="" style="width: 100%">
                     </div>
                     <div class="content" style="padding: 0.6em;">
                         <h2 class="lager header" style="margin-bottom: 0.2em;">InvisibleMouse</h2>
@@ -67,17 +67,17 @@
                         </div>
                     </div>
                 </div>
-                <div class="mBG-color-white">
-                    <div class="m-card-title" align="center">标签云</div>
-                    <div style="padding: 1em;">
-                        <a href="#">java</a>
-                        <a href="#">java</a>
-                        <a href="#">java</a>
-                        <a href="#">java</a>
-                        <a href="#">java</a>
-                        <a href="#">java</a>
-                    </div>
-                </div>
+<!--                <div class="mBG-color-white">-->
+<!--                    <div class="m-card-title" align="center">标签云</div>-->
+<!--                    <div style="padding: 1em;">-->
+<!--                        <a href="#">java</a>-->
+<!--                        <a href="#">java</a>-->
+<!--                        <a href="#">java</a>-->
+<!--                        <a href="#">java</a>-->
+<!--                        <a href="#">java</a>-->
+<!--                        <a href="#">java</a>-->
+<!--                    </div>-->
+<!--                </div>-->
             </div>
 
             <!------------中间文章------------>
@@ -198,13 +198,18 @@
             <!------------右边------------>
             <div class="three wide column">
                 <div class="mBG-color-white m-mobile-hide">
-                    <div class="m-card-title" align="center">每周一句</div>
+                    <div class="m-card-title" align="center">一句</div>
                     <div style="padding: 2em;">
-                        我是谁 <br>
-                        我从哪里来 <br>
-                        我要到哪里去 <br>
+                        我告诉你我喜欢你 <br>
+                        并不是一定要和你在一起 <br>
+                        只是希望今后的你 <br>
+                        在遭遇人生低谷的时候 <br>
+                        不要灰心 <br>
+                        至少曾经有人被你的魅力所吸引 <br>
+                        曾经是 <br>
+                        以后也会是 <br>
                         <div style="float: right;">
-                            --无名氏
+                            --村上春树
                         </div>
                     </div>
                 </div>
@@ -234,6 +239,8 @@
         </div>
     </div>
 
+
+<!--    <footer th:replace="_comment :: footer()"></footer>-->
     <div th:replace="_comment :: js()">
         <script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
         <script src="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.js"></script>

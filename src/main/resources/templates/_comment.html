@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
-<head th:fragment="head()">
+<head th:fragment="head(title)">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>后台管理|首页</title>
+    <title th:replace="${title}">首页|MOUSE</title>
+    <link rel="icon" type="image/x-icon" href="#" th:href="@{/images/avatar/avatar-1.jpeg}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css">
     <link rel="stylesheet" href="../static/css/myFront.css" th:href="@{/css/myFront.css}">
     <link rel="stylesheet" href="../static/css/myStyle.css" th:href="@{/css/myStyle.css}">
@@ -49,7 +50,7 @@
         </div>
 
     </nav>
-<div class="m-padded">
+    <div class="m-padded">
     <div class="ui grid">
         <!-- --------左边--------- -->
         <div class="three wide column">
@@ -84,14 +85,23 @@
 </div>
 
 
+<!--    <footer th:fragment="footer()" class="ui attached inverted segment mBG-color-black m-padded-tb-small" style="border: none !important;">-->
+<!--        <p class="m-text-thin m-text-spaced m-opacity-tiny">Copyright © 2020 - <span th:text="${#dates.year(#dates.createNow())}">2021</span> BLOG Designed by HURUI</p>-->
+<!--    </footer>-->
 
-<div th:fragment="js()">
+
+
+    <div th:fragment="js()">
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.js"></script>
     <script src="../static/js/index.js" th:src="@{/js/index.js}"></script>
     <script src="../static/lib/prism/prism.js" th:src="@{/lib/prism/prism.js}"></script>
     <script src="../static/lib/tocbot/tocbot.js" th:src="@{/lib/tocbot/tocbot.js}"></script>
 </div>
+
+
+
+
 
 <script>
     $('.ui.dropdown').dropdown({
