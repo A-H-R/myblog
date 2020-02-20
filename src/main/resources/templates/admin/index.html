@@ -48,7 +48,10 @@
                     <div class="item" id="menuItem4">
                         <div href="#" onclick="change(4,'/admin/tag')"><i class="large tags icon"></i> 标签管理</div>
                     </div>
-
+                    <div class="item" id="menuItem5">
+                        <div href="#" onclick="change(5,'/admin/comment')"><i class="large comment icon"></i> 留言管理</div>
+                        <div class="floating ui red label" th:text="${commentNum}">22</div>
+                    </div>
                 </div>
 
             </div>
@@ -66,8 +69,8 @@
                     </div>
 
 
-                    <div class="ui container">
-                        <div class="ui segment">
+                    <div>
+                        <div class="ui basic segment">
                             <iframe src="sort.html" id="mIframe" th:src="@{/admin/article}" frameborder="0" style="min-height: 550px;width: 100%;" scrolling="auto">
 
                             </iframe>

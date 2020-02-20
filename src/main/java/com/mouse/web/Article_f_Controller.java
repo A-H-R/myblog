@@ -20,7 +20,7 @@ import java.util.List;
  *created by mouse on 2020/2/8
  */
 @Controller
-public class ArticleShowController {
+public class Article_f_Controller {
 
     @Autowired
     private ArticleService articleService;

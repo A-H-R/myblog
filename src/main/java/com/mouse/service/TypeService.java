@@ -20,8 +20,10 @@ public interface TypeService {
     Page<Type> pageType(Pageable pageable);
     List<Type> listType();
 
+    //  前端
+    List<Type> showType();
 
-
+    Type showOneType(Long id);
 
 
 

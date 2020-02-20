@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head th:replace="_comment :: head(~{::title})">
     <meta charset="UTF-8">
-    <title>详情|MOUSE</title>
+    <title>关于我|MOUSE</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css">
     <link rel="stylesheet" href="../static/css/myFront.css" th:href="@{/css/myFront.css}">
     <link rel="stylesheet" href="../static/css/myStyle.css" th:href="@{/css/myStyle.css}">
@@ -10,6 +10,21 @@
     <link rel="stylesheet" href="../static/lib/prism/prism.css" th:href="@{/lib/prism/prism.css}">
 </head>
 <body>
+    <div class="bg"></div>
+    <nav th:replace="_comment :: menu(1)" class="ui attached segment mBG-color-black m-padded-tb-small">
+    <div class="ui mini inverted secondary stackable menu">
+        <h1 class="ui header item" style="margin-right: 3em;">思想的巨人</h1>
+        <div class="active item m-padded-tb-small">
+            <a href="#" th:href="@{/}"><i class="ui large home icon"></i> 首页</a>
+        </div>
+        <div class="item">
+            <a href="#" th:href="@{/category}"><i class="ui large archive icon"></i>分类</a>
+        </div>
+        <div class="item">
+            <a href="#"><i class="ui large archive icon"></i>时间轴</a>
+        </div>
+    </div>
+</nav>
     <div class="ui container">
         <div class="ui segment">
             <div id="content" class="typo typo-selection js-toc-content m-padded-lr-responsive">
@@ -23,20 +38,24 @@
                         <h2 style="display: inline-block;margin-right: 2em;">InvisibleMouse</h2><span>男</span>
                         <div>
                             <p>一个技术小白，想学习点东西，做点东西</p>
+                            <p>想认识比我优秀的人，紧紧的跟着他们</p>
+                            <p>想要多年以后还是少年的面孔</p>
+                            <p>QQ：1519846021</p>
+                            <p>微信：************</p>
                         </div>
                     </div>
                 </div>
                 <div class="ui segment">
                     <h1>我的经历</h1>
                     <div>
-                        <p>我是一个极其平常的人，甚至是劣于平常人，唯一感到庆幸的是我还算平安的活过了21年。</p>
-                        <p>在这21年里，平平常常地生活，过着被安排的日子。不说学前的咿呀时期，我也没有多少印象；到了上学的时候，小初中去哪上，如何学习？到了大学，选择什么学校，
-                            学什么专业，我都是听从我父母，我兄长的话。就我这个计算机的专业，就是听我哥的，然后报的。现在想想，我感觉挺可笑的，对自己的未来没有一点的计划。</p>
+                        <p>我是一个平常人，没有传奇的经历。</p>
+                        <p>我是属于青青草原上的一株草，过着日复一日、平淡无奇的日子。没有聪明的头脑，也没有作死的努力过，一边自欺欺人地想着自己拥有无人可比的头脑不要需要努力，一边和旁边的同类
+                            嘲讽着为理想而奋斗的人，最后……；偶尔看着旁边的花，心想不能成为花也要达到花的高度，不一会儿，这里的阳光真温暖；呵呵，就他妈真香。这就是我日复一日的日子。</p>
                     </div>
                 </div>
                 <div class="ui segment">
                     <h1>想象</h1>
-                    <h4>写这段文字时我只是一个尚未涉世的青年，这就是我的一些理想化的想法，至于能不能实现，我不在乎，有时想想我就会很开心的。</h4>
+                    <h4>写这段文字时我只是一个尚未涉世的青年，这就是我的一些理想化的想法，至于能不能实现并不在意，有时想想就会很开心的。</h4>
                     <div>
                         <p>1、最早萌生在我头脑中的一件事情是：在我一生中期遇到几位挚友，我们不需要每天的频繁联系，在对方需要帮助的时候，不说是无条件的帮助对方也会尽自己的全力去帮助对方。
                             在一年中我们会找几天一起出去旅游，自驾游的那一种，不需要有目的地的那一种，我们不会在意着其他的事；我们在意着沿途的风景，胡吹海吹；我们放肆地畅谈，放肆地笑。</p>

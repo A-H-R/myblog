@@ -25,13 +25,6 @@ public class TypeServiceImpl implements TypeService {
 
     @Override
     public Type saveType(Type type) {
-//        if (type.getId() == null) {
-//            //  新增分类
-//            return typeRepository.save(type);
-//        } else {
-//            // 修改分类
-//
-//        }
         return typeRepository.save(type);
     }
 
@@ -56,4 +49,17 @@ public class TypeServiceImpl implements TypeService {
     public List<Type> listType() {
         return typeRepository.findAll();
     }
+
+
+    //----------------------------------------------------------------------------
+    @Override
+    public List<Type> showType() {
+        return typeRepository.findShowType();
+    }
+
+    @Override
+    public Type showOneType(Long id) {
+        return typeRepository.findTypeByIdAndStatus(id, true);
+    }
+
 }

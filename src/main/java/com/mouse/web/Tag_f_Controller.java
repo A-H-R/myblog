@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
  *created by mouse on 2020/2/12
  */
 @Controller
-public class TagShowController {
+public class Tag_f_Controller {
 
     @Autowired
     private TagService tagService;

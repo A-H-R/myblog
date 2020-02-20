@@ -34,11 +34,6 @@ public class ArticleController {
     private TagService tagService;
 
 
-
-    //  创建Pageable
-    //    Sort sort = new Sort(Sort.Direction.DESC,"updateTime");
-    //    Pageable pageable = new PageRequest(0, size, sort);
-
     @GetMapping("/article")
     public String toArticle(@PageableDefault(size = 6,sort = {"updateTime"},direction = Sort.Direction.DESC) Pageable pageable,
                             Model model) {

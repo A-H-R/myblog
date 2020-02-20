@@ -81,11 +81,25 @@
                                 <h1>didiao</h1>
                             </div>
 
+                            <div style="padding: 0em 5em;" th:each="tag : *{tags}">
+                                <a class="ui teal tag label" th:text="${tag.name}">java</a>
+                            </div>
+
+                            <div style="padding: 0em 5em;">
+                                <hr>
+                                <p style="font-size: 12px;">作者：<span th:text="*{author}">胡瑞</span></p>
+                                <p style="font-size: 12px;">出处：<span th:text="*{source}">http://148.70.187.228:8080</span></p>
+                                <p style="font-size: 12px;">希望在以后有酒有肉时候，我还有故事可以回忆，以文分享，更是记录成长。本人水平有限，若有不足，还望指正，共同进步。</p>
+                                <p style="font-size: 12px;">版权声明： 本文版权归作者所有，欢迎转载，转载请署名作者且注明文章出处。</p>
+                            </div>
+
+
                             <div style="padding: 0em 3em 4em 3em;" class="m-mobile-hide">
                                 <a href="#" style="float: left;" th:href="@{/}"> < 返回首页</a>
                             </div>
 
                         </div>
+
                     </div>
                 </div>
             </div>

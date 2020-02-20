@@ -46,7 +46,6 @@ public class TypeController {
         } else {
             //  编辑按钮
             model.addAttribute("type", typeService.getOneType(id));
-            System.out.println(123);
         }
         return "admin/editTotal";
     }

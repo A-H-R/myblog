@@ -6,15 +6,16 @@ package com.mouse.service;
 import com.mouse.NotFoundException;
 import com.mouse.dao.ArticleRepository;
 import com.mouse.po.Article;
+import com.mouse.po.Type;
 import com.mouse.util.MarkdownUtils;
+import com.mouse.util.TimeString;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.util.List;
 
 @Service
 public class ArticleServiceImpl implements ArticleService{
@@ -25,16 +26,15 @@ public class ArticleServiceImpl implements ArticleService{
     //  保存一份文章
     @Override
     public Article saveArticle(Article article) {
-        SimpleDateFormat f = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         if (article.getId() == null){
             //  新编辑的一份文章
-            article.setCreateTime(f.format(new Date()));
-            article.setUpdateTime(f.format(new Date()));
+            article.setCreateTime(TimeString.getTime());
+            article.setUpdateTime(TimeString.getTime());
             article.setViews(0);
             return articleRepository.save(article);
         } else {
             //  修改文章
-            article.setUpdateTime(f.format(new Date()));
+            article.setUpdateTime(TimeString.getTime());
             Article a = articleRepository.getOne(article.getId());
             article.setCreateTime(a.getCreateTime());
             article.setViews(a.getViews());
@@ -78,6 +78,12 @@ public class ArticleServiceImpl implements ArticleService{
         articleRepository.updateViews(id);
         return a;
     }
+
+    @Override
+    public List<Article> getArticleByType(Type type) {
+        return articleRepository.findArticlesByTypeAndStatus(type, true);
+    }
+
 
 
     @Override

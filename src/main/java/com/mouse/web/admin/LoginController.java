@@ -5,10 +5,12 @@ package com.mouse.web.admin;
 
 
 import com.mouse.po.User;
+import com.mouse.service.CommentService;
 import com.mouse.service.UserService;
 import com.mouse.util.MD5Utils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,13 +27,18 @@ public class LoginController {
     @Autowired
     private UserService userService;
 
+    @Autowired
+    private CommentService commentService;
+
     @GetMapping
     public String toLogin(){
         return "admin/login";
     }
 
     @GetMapping("/index")
-    public String toIndex() {
+    public String toIndex(Model model) {
+
+        model.addAttribute("commentNum", commentService.getCommentNum());
         return "admin/index";
     }
 
@@ -41,12 +48,12 @@ public class LoginController {
                         @RequestParam String password,
                         HttpSession session,
                         RedirectAttributes attributes) throws NoSuchAlgorithmException {
-        User user = userService.checkUser(username, MD5Utils.code(password));
+        User user = userService.checkUser(username, password);
         if (user != null) {
             //  查到
             user.setPassword(null);
             session.setAttribute("user", user);
-            return "admin/index";
+            return "redirect:/admin/index";
         } else {
             //  失败
             attributes.addFlashAttribute("message", "用户名或密码错误");

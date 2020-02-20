@@ -17,6 +17,7 @@ public class Article {
     private Long id;
     private String title;
     private String author;
+    private String source;
     @Basic(fetch = FetchType.LAZY)
     @Lob
     private String content;
@@ -36,6 +37,13 @@ public class Article {
     public Article() {
     }
 
+    public String getSource() {
+        return source;
+    }
+
+    public void setSource(String source) {
+        this.source = source;
+    }
 
     @Override
     public String toString() {

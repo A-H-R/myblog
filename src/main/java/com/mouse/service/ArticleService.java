@@ -29,9 +29,10 @@ public interface ArticleService {
     Page<Article> listArticleByTime(Pageable pageable);
 
 
-
     Article getAndConvert(Long id);
 
+
+    List<Article> getArticleByType(Type type);
 
 
 

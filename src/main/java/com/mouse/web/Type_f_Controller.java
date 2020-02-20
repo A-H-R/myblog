@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.PathVariable;
  *created by mouse on 2020/2/12
  */
 @Controller
-public class TypeShowController {
+public class Type_f_Controller {
 
     @Autowired
     private TypeService typeService;
@@ -25,7 +25,8 @@ public class TypeShowController {
 
     @GetMapping("/category/{id}")
     public String toCategory(@PathVariable Long id, Model model) {
-        model.addAttribute("types", typeService.listType());
+
+        model.addAttribute("types", typeService.showType());
 
         Sort.Order order = new Sort.Order(Sort.Direction.DESC, "updateTime");
         Pageable pageable = PageRequest.of(0,10000,Sort.by(order));
@@ -34,8 +35,8 @@ public class TypeShowController {
             model.addAttribute("flag", id);
             model.addAttribute("articles", articleService.listArticleByTime(pageable));
         } else {
-            model.addAttribute("flag", typeService.getOneType(id).getName());
-            model.addAttribute("articles", typeService.getOneType(id).getArticles());
+            model.addAttribute("flag", typeService.showOneType(id).getName());
+            model.addAttribute("articles", articleService.getArticleByType(typeService.getOneType(id)));
         }
 
         return "category";

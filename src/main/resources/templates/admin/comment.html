@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css">
+    <link rel="stylesheet" href="../static/css/myFront.css" th:href="@{/css/myFront.css}">
+    <link rel="stylesheet" href="../static/css/myStyle.css" th:href="@{/css/myStyle.css}">
+    <link rel="stylesheet" href="../static/css/typo.css" th:href="@{/css/typo.css}">
+    <link rel="stylesheet" href="../static/lib/prism/prism.css" th:href="@{/lib/prism/prism.css}">
+</head>
+<body>
+    <div>
+        <table class="ui teal table">
+            <thead>
+            <tr>
+                <th></th>
+                <th>昵称</th>
+                <th>邮箱</th>
+                <th>内容</th>
+                <th>时间</th>
+                <th>状态</th>
+                <th>操作</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr th:each="item,iter:${comments.content}">
+                    <td th:text="${iter.count}">1</td>
+                    <td th:text="${item.nickname}">mouse</td>
+                    <td th:text="${item.email}">1519846021@qq.com</td>
+                    <td th:text="${item.content}">胡瑞宇宙无敌最帅，最俊朗</td>
+                    <td th:text="${item.createTime}">2020-2-4 14:03</td>
+                    <td>
+                        <label class="ui label" th:classappend="${item.status} ? 'green' : 'red'" th:text="${item.status} ? '已读' : '未读'">已读</label>
+                    </td>
+                    <td>
+                        <button data-commentid="1" data-nickname="mouse" data-time="2020-2-4 14:03" data-content="hurui"
+                                th:attr="data-commentid=${item.id},data-nickname=${item.nickname},data-time=${item.createTime},data-content=${item.content}"
+                                class="ui mini teal basic button" onclick="showModel(this)">回复</button>
+                    </td>
+                </tr>
+                <!--/*-->
+                <tr th:each="item,iter:${articles.content}">
+                    <td th:text="${iter.count}">1</td>
+                    <td th:text="${item.title}">mouse</td>
+                    <td th:text="${item.author}">1519846021@qq.com</td>
+                    <td th:text="${item.flag}">胡瑞宇宙无敌最帅，最俊朗</td>
+                    <td th:text="${item.updateTime}">2020-2-4 14:03</td>
+                    <td><i class="" th:classappend="${item.status} ? 'green large eye icon' : 'red large low vision icon'"></i>
+                        <label class="ui red label">未读</label>
+                    </td>
+                    <td>
+                        <a href="#" th:href="@{/admin/publish/{id}(id=${item.id})}" class="ui mini teal basic button">回复</a>
+                    </td>
+                </tr>
+                <tr th:each="item,iter:${articles.content}">
+                    <td th:text="${iter.count}">1</td>
+                    <td th:text="${item.title}">mouse</td>
+                    <td th:text="${item.author}">1519846021@qq.com</td>
+                    <td th:text="${item.flag}">胡瑞宇宙无敌最帅，最俊朗</td>
+                    <td th:text="${item.updateTime}">2020-2-4 14:03</td>
+                    <td><i class="" th:classappend="${item.status} ? 'green large eye icon' : 'red large low vision icon'"></i>
+                        <label class="ui green label">已读</label>
+                    </td>
+                    <td>
+                        <a href="#" th:href="@{/admin/publish/{id}(id=${item.id})}" class="ui mini teal basic button">回复</a>
+                    </td>
+                </tr>
+                <!--*/-->
+            </tbody>
+            <tfoot>
+            <tr>
+                <th colspan="9" th:if="${comments.totalPages>1}">
+                    <a href="#" th:href="@{/admin/comments(page=${articles.number}-1)}" th:unless="${comments.first}" class="ui black button">上一页</a>
+                    <a href="#" th:href="@{/admin/comments(page=${articles.number}+1)}" th:unless="${comments.last}" class="ui right floated black button">下一页</a>
+                </th>
+            </tr>
+            </tfoot>
+        </table>
+    </div>
+
+    <div class="ui modal">
+        <i class="close icon"></i>
+        <div class="header">
+            回复
+        </div>
+        <div class="content" id="reply_content">
+            <h3 class="ui header">代号</h3>
+            <div class="field">2020-02-12 12:30:25</div>
+            <div class="ui attached segment">
+                今天真是个好日子，你的博客写的不错。
+            </div>
+            <h3 class="ui header">我的回复</h3>
+            <form action="#" class="ui form" id="reply_form" th:action="@{/admin/reply}" method="post">
+                <input type="hidden" name="parentComment.id" value="-1" id="parentCommentId">
+                <textarea name="content" placeholder="有什么骚话就快说吧！"></textarea>
+<!--                <button class="ui button" onclick="hideModel()">取消</button>-->
+<!--                <button class="ui positive submit button">提交</button>-->
+                <div class="actions">
+                    <div class="ui cancel button">取消</div>
+                    <div class="ui positive approve button">提交</div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div th:fragment="js()">
+        <script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.js"></script>
+        <script src="../static/js/index.js" th:src="@{/js/index.js}"></script>
+        <script src="../static/lib/prism/prism.js" th:src="@{/lib/prism/prism.js}"></script>
+        <script src="../static/lib/tocbot/tocbot.js" th:src="@{/lib/tocbot/tocbot.js}"></script>
+    </div>
+
+    <script language="JavaScript">
+
+        function showModel(obj) {
+            //  更新弹窗中的信息
+            $('#reply_content').children().eq(0).text($(obj).data('nickname'));
+            $('#reply_content').children().eq(1).text($(obj).data('time'));
+            $('#reply_content').children().eq(2).text($(obj).data('content'));
+
+            //  更新提交表单中的父评论id
+            $('#parentCommentId').val($(obj).data('commentid'));
+
+            $('.ui.modal').modal({
+                closable : false,
+                onDeny : function () {
+                },
+                onApprove : function () {
+                    $('#reply_form').submit();
+                }
+            })
+            .modal('show');
+        }
+    </script>
+
+</body>
+</html>
