@@ -62,4 +62,9 @@ public class TypeServiceImpl implements TypeService {
         return typeRepository.findTypeByIdAndStatus(id, true);
     }
 
+    @Override
+    public Type getTypeByName(String name) {
+        return typeRepository.findTypeByName(name);
+    }
+
 }

@@ -4,6 +4,7 @@ package com.mouse.dao;
  */
 
 import com.mouse.po.Article;
+import com.mouse.po.Tag;
 import com.mouse.po.Type;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -28,8 +29,9 @@ public interface ArticleRepository extends JpaRepository<Article,Long>, JpaSpeci
     int updateViews(Long id);
 
 
-
     List<Article> findArticlesByTypeAndStatus(Type type,Boolean status);
+
+    List<Article> findArticlesByTags(Tag tag);
 
 
 }

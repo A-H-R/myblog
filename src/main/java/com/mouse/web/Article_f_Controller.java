@@ -1,6 +1,5 @@
 package com.mouse.web;
 
-import com.mouse.po.Article;
 import com.mouse.service.ArticleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
@@ -12,10 +11,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
-
 /*
  *created by mouse on 2020/2/8
  */
@@ -24,8 +19,6 @@ public class Article_f_Controller {
 
     @Autowired
     private ArticleService articleService;
-
-
 
     @GetMapping()
     public String index(@PageableDefault(size = 5,sort = {"updateTime"},direction = Sort.Direction.DESC) Pageable pageable, Model model) {

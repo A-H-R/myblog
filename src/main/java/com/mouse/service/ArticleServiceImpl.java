@@ -6,6 +6,7 @@ package com.mouse.service;
 import com.mouse.NotFoundException;
 import com.mouse.dao.ArticleRepository;
 import com.mouse.po.Article;
+import com.mouse.po.Tag;
 import com.mouse.po.Type;
 import com.mouse.util.MarkdownUtils;
 import com.mouse.util.TimeString;
@@ -100,5 +101,10 @@ public class ArticleServiceImpl implements ArticleService{
     @Override
     public void deleteArticle(Long id) {
         articleRepository.deleteById(id);
+    }
+
+    @Override
+    public List<Article> getByTag(Tag tag) {
+        return articleRepository.findArticlesByTags(tag);
     }
 }

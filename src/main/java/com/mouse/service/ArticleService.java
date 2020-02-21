@@ -4,6 +4,7 @@ package com.mouse.service;
  */
 
 import com.mouse.po.Article;
+import com.mouse.po.Tag;
 import com.mouse.po.Type;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -23,6 +24,9 @@ public interface ArticleService {
     Article updateArticle(Long id);     //  更新状态
 
     void deleteArticle(Long id);
+
+
+    List<Article> getByTag(Tag tag);
 
     //  前端显示页面
 

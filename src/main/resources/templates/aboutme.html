@@ -11,7 +11,7 @@
 </head>
 <body>
     <div class="bg"></div>
-    <nav th:replace="_comment :: menu(1)" class="ui attached segment mBG-color-black m-padded-tb-small">
+    <nav th:replace="_comment :: menu(5)" class="ui attached segment mBG-color-black m-padded-tb-small">
     <div class="ui mini inverted secondary stackable menu">
         <h1 class="ui header item" style="margin-right: 3em;">思想的巨人</h1>
         <div class="active item m-padded-tb-small">
@@ -31,7 +31,7 @@
                 <div class="ui three columns grid">
                     <div class="one column">
                         <div style="display: inline-block;">
-                            <img src="../static/images/avatar/avatar-3.png" alt="">
+                            <img src="../static/images/avatar/avatar-3.png" alt="" th:src="@{/images/avatar/avatar-3.png}">
                         </div>
                     </div>
                     <div class="two columns">

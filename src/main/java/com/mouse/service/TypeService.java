@@ -25,6 +25,7 @@ public interface TypeService {
 
     Type showOneType(Long id);
 
+    Type getTypeByName(String name);
 
 
 }

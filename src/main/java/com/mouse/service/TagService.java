@@ -17,6 +17,8 @@ public interface TagService {
     Page<Tag> pageTag(Pageable pageable);
     List<Tag> listTag();
 
+    Tag getTagByName(String name);
+
     //  前端
 
 }

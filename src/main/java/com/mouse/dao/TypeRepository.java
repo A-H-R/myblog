@@ -15,4 +15,7 @@ public interface TypeRepository extends JpaRepository<Type,Long> {
     List<Type> findShowType();
 
     Type findTypeByIdAndStatus(Long id,Boolean status);
+
+
+    Type findTypeByName(String name);
 }
