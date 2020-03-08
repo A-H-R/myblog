@@ -48,7 +48,7 @@ public class LoginController {
                         @RequestParam String password,
                         HttpSession session,
                         RedirectAttributes attributes) throws NoSuchAlgorithmException {
-        User user = userService.checkUser(username, password);
+        User user = userService.checkUser(username, MD5Utils.code(password));
         if (user != null) {
             //  查到
             user.setPassword(null);

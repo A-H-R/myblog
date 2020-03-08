@@ -11,4 +11,8 @@ public class TimeString {
         SimpleDateFormat f = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         return f.format(new Date());
     }
+    public static String imageTime() {
+        SimpleDateFormat f = new SimpleDateFormat("yyyyMMddHHmmss");
+        return f.format(new Date());
+    }
 }
